@@ -10,8 +10,13 @@ namespace Webshop.Model
         public static List<Account> GetAccounts()
         {
             List<Account> Accounts = new List<Account>();
-
+            Database.getData("SELECT ") //NOG VERDER MAKEN
             return Accounts;
+        }
+
+        public static void VoegAccountToe(Account account)
+        {
+
         }
     }
 }

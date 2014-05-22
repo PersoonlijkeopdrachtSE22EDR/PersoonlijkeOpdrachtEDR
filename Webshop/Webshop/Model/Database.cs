@@ -20,7 +20,7 @@ namespace Webshop.Model
             conn.ConnectionString = "User Id=" + pcn + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
         }
 
-        public DataTable getDate(string query)
+        public static DataTable getData(string query)
         {
             DataTable dt = new DataTable();
 

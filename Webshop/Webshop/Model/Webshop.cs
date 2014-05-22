@@ -22,6 +22,11 @@ namespace Webshop.Model
             }
         }
 
+        public void VoegToeAccount(Account account)
+        {
+            Account.VoegAccountToe(account);
+        }
+
 
     }
 }
