@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System.Data;
 
 namespace Webshop.Model
 {
@@ -10,7 +13,11 @@ namespace Webshop.Model
         public static List<Account> GetAccounts()
         {
             List<Account> Accounts = new List<Account>();
-            Database.getData("SELECT ") //NOG VERDER MAKEN
+            DataTable dt = Database.getData("SELECT ");//NOG VERDER MAKEN
+            foreach(DataRow row in dt.Rows)
+            {
+
+            }
             return Accounts;
         }
 
