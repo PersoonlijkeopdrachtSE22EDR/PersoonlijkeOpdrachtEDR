@@ -8,15 +8,15 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
-    public class Database
+    public static class Database
     {
         private static OracleConnection conn;
 
-        public Database()
+        static Database()
         {
             conn = new OracleConnection();
             string pcn = "dbi254244";
-            string pw = "r6hUm1yeB";
+            string pw = "r6hUm1yeBa";
             conn.ConnectionString = "User Id=" + pcn + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
         }
 
@@ -42,7 +42,7 @@ namespace Webshop2
             return dt;
         }
 
-        public void InsertData(string query)
+        public static void InsertData(string query)
         {
             try
             {

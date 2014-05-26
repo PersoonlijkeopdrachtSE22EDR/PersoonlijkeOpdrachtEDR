@@ -13,7 +13,7 @@ namespace Webshop2
         public static List<Account> GetAccounts()
         {
             List<Account> Accounts = new List<Account>();
-            DataTable dt = Database.getData("SELECT EMAILADRES as email, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS");//NOG VERDER MAKEN
+            DataTable dt = Database.getData("SELECT EMAILADRES as email, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS");
             foreach(DataRow row in dt.Rows)
             {
                 string email = row["email"].ToString();
