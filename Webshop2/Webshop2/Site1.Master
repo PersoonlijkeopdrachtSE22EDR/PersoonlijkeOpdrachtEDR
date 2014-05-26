@@ -36,13 +36,12 @@
                             <li class="divider"></li>
                             <li><a href="#">Account</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Log uit</a></li>
+                            <li><a href="LogUit.aspx">Log uit</a> </li>
                         </ul>
                     </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-            <asp:LinkButton type="submit" runat="server" CssClass="btn btn-success" OnClick="LogUit">Log Uit</asp:LinkButton>
         </div>
         <!-- /.container-fluid -->
     </nav>

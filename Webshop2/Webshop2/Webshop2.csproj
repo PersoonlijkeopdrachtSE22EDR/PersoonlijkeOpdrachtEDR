@@ -71,6 +71,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-2.1.1.js" />
     <Content Include="Login.aspx" />
+    <Content Include="LogUit.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +88,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogUit.aspx.cs">
+      <DependentUpon>LogUit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogUit.aspx.designer.cs">
+      <DependentUpon>LogUit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Account.database.cs" />

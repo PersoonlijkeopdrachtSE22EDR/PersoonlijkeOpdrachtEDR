@@ -20,7 +20,13 @@ namespace Webshop2
 
         }
 
-        protected void LogUit(object sender, EventArgs e)
+        protected void LogUit_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void btnSaveImage_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
             Response.Redirect("Login.aspx");
