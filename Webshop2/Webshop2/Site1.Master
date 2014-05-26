@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">EDR Electronics</a>
+                <a class="navbar-brand" href="default.aspx">EDR Electronics</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,6 +42,7 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
+            <asp:LinkButton type="submit" runat="server" CssClass="btn btn-success" OnClick="LogUit">Log Uit</asp:LinkButton>
         </div>
         <!-- /.container-fluid -->
     </nav>
