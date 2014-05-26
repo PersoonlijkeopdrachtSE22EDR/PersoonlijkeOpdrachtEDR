@@ -33,11 +33,17 @@ namespace Webshop2
             set;
         }
 
+        public string Woonplaats
+        {
+            get;
+            set;
+        }
+
         public List<Bestelling> Bestellingen
         {
             get
             {
-                return Bestelling.getBestellingen(this.Gebruikersnaam); //parameter nog invullen
+                return Bestelling.GetBestellingen(this.Gebruikersnaam);
             }
         }
 
@@ -47,6 +53,14 @@ namespace Webshop2
             set;
         }
 
-        public Account (string gebruikersnaam, string wachtwoord, string naam, string adres, string telefoonnummer)
+        public Account (string gebruikersnaam, string wachtwoord, string naam, string adres, string telefoonnummer, string woonplaats)
+        {
+            this.Gebruikersnaam = gebruikersnaam;
+            this.wachtwoord = wachtwoord;
+            this.Naam = naam;
+            this.Adres = adres;
+            this.Telefoonnummer = telefoonnummer;
+            this.Woonplaats = woonplaats;
+        }
     }
 }

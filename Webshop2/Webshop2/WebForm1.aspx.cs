@@ -14,8 +14,6 @@ namespace Webshop2
         {
             JavaScriptSerializer js = new JavaScriptSerializer();
             Response.Write(js.Serialize(Account.GetAccounts()));
-
-            
         }
     }
 }

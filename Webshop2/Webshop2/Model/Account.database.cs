@@ -23,7 +23,8 @@ namespace Webshop2
                 string telefoonnummer = row["TELEFOONNUMMER"].ToString();
                 string woonplaats = row["WOONPLAATS"].ToString();
 
-                Account account = new Account(email, wachtwoord, naam, adres, telefoonnummer);
+                Account account = new Account(email, wachtwoord, naam, adres, telefoonnummer, woonplaats);
+                Accounts.Add(account);
             }
             return Accounts;
         }
