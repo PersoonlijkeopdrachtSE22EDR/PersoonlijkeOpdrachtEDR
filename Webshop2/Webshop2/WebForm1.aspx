@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Forms Authentication - Default Page</title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
+    <h3>Using Forms Authentication</h3>
+  <asp:Label ID="Welcome" runat="server" />
+  <form id="Form1" runat="server">
+    <asp:Button ID="Submit1" OnClick="Signout_Click" Text="Sign Out" runat="server" />
+  </form>
 </body>
 </html>
