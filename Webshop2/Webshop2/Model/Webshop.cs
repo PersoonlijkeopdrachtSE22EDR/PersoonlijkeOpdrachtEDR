@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Webshop2
 {
-    public class Webshop
+    public partial class Webshop
     {
         public List<Account> Accounts
         {
@@ -25,6 +25,12 @@ namespace Webshop2
         public void VoegToeAccount(Account account)
         {
             Account.VoegAccountToe(account);
+        }
+
+        public Account Login(string gebruikersnaam, string wachtwoord)
+        {
+            Account account = Webshop.CheckLogin(gebruikersnaam, wachtwoord);
+            return Account;
         }
 
 
