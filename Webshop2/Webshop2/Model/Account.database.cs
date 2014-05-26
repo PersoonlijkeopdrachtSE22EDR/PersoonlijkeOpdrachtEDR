@@ -6,7 +6,7 @@ using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using System.Data;
 
-namespace Webshop.Model
+namespace Webshop2
 {
     public partial class Account
     {
@@ -23,7 +23,7 @@ namespace Webshop.Model
                 string telefoonnummer = row["TELEFOONNUMMER"].ToString();
                 string woonplaats = row["WOONPLAATS"].ToString();
 
-                Account account = new Account
+                Account account = new Account(email, wachtwoord, naam, adres, telefoonnummer);
             }
             return Accounts;
         }

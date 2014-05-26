@@ -6,7 +6,7 @@ using System.Data;
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 
-namespace Webshop.Model
+namespace Webshop2
 {
     public class Database
     {
