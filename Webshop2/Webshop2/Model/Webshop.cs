@@ -22,15 +22,22 @@ namespace Webshop2
             }
         }
 
-        public void VoegToeAccount(Account account)
+        public bool VoegToeAccount(Account account)
         {
-            Account.VoegAccountToe(account);
+            if(Account.VoegAccountToe(account))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public Account Login(string gebruikersnaam, string wachtwoord)
         {
             Account account = Webshop.CheckLogin(gebruikersnaam, wachtwoord);
-            return Account;
+            return account;
         }
 
 

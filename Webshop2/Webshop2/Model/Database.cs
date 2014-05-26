@@ -42,15 +42,37 @@ namespace Webshop2
             return dt;
         }
 
-        public static void InsertData(string query)
+
+        public static DataTable getDataParameters(OracleCommand cmd)
         {
+            DataTable dt = new DataTable();
+            cmd.Connection = conn;
+
             try
             {
                 conn.Open();
-                OracleCommand cmd = new OracleCommand();
-                cmd.CommandText = query;
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = conn;
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                adapter.Fill(dt);
+            }
+            catch (OracleException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
+
+        public static void InsertData(OracleCommand cmd)
+        {
+            cmd.Connection = conn;
+            try
+            {
+                conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch(OracleException ex)

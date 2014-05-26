@@ -13,12 +13,13 @@ namespace Webshop2
         protected void Page_Load(object sender, EventArgs e)
         {
             Welcome.Text = "Hello, " + Context.User.Identity.Name;
+            this.Title = Site1.UpdateTitle("Welkom");
         }
 
         protected void Signout_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect("Logon.aspx");
+            Response.Redirect("Login.aspx");
         }
     }
 }
