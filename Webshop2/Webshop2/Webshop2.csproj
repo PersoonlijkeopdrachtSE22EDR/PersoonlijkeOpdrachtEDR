@@ -117,6 +117,7 @@
     <Compile Include="Model\Product.database.cs" />
     <Compile Include="Model\Productregel.cs" />
     <Compile Include="Model\Reactie.cs" />
+    <Compile Include="Model\Reactie.database.cs" />
     <Compile Include="Model\Wasmachine.cs" />
     <Compile Include="Model\Webshop.cs" />
     <Compile Include="Model\Webshop.database.cs" />
