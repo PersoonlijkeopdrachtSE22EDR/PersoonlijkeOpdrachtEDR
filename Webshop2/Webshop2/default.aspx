@@ -3,11 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3>Using Forms Authentication</h3>
-    <asp:Label ID="Welcome" runat="server" />
-    <form id="Form1" runat="server">
-        <asp:Button ID="Submit1" OnClick="Signout_Click" Text="Sign Out" runat="server" />
-
+    <h3>Accountgegevens:</h3>
         <%--Registreer Email adres--%>
         <div class="row class1">
             <div class="col-md-2">
@@ -16,7 +12,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBoxRegistreerEmail" runat="server" />
+                <asp:label ID="LabelRegistreerEmail" runat="server" />
             </div>
         </div>
         <%--Einde registreer email adres--%>
@@ -25,11 +21,11 @@
         <div class="row class1">
             <div class="col-md-2">
                 <div class="control-group row-fluid form-inline">
-                    <asp:Label runat="server" ID="LabelRegistreer">Wachtwoord:</asp:Label>
+                    <asp:Label runat="server" ID="LabelWachtRegistreer">Wachtwoord:</asp:Label>
                 </div>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBoxRegistreerWachtwoord" TextMode="Password" runat="server" />
+                <asp:Label ID="LabelRegistreerWachtwoord" Text="******" runat="server" />
             </div>
         </div>
         <%--Einde registreer password--%>
@@ -38,11 +34,11 @@
         <div class="row class1">
             <div class="col-md-2">
                 <div class="control-group row-fluid form-inline">
-                    <asp:Label runat="server" ID="LabelRegistreerNaam">Naam:</asp:Label>
+                    <asp:Label runat="server" ID="LabelNaam">Naam:</asp:Label>
                 </div>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBoxRegistreerNaam" runat="server" />
+                <asp:Label ID="LabelRegistreerNaam" runat="server" />
             </div>
         </div>
         <%--Einde registreer naam--%>
@@ -52,11 +48,11 @@
         <div class="row class1">
             <div class="col-md-2">
                 <div class="control-group row-fluid form-inline">
-                    <asp:Label runat="server" ID="LabelRegistreerAdres">Adres:</asp:Label>
+                    <asp:Label runat="server" ID="LabelAdres">Adres:</asp:Label>
                 </div>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBoxRegistreerAdres" runat="server" />
+                <asp:Label ID="LabelRegistreerAdres" runat="server" />
             </div>
         </div>
         <%--Einde registreer adres--%>
@@ -66,11 +62,11 @@
         <div class="row class1">
             <div class="col-md-2">
                 <div class="control-group row-fluid form-inline">
-                    <asp:Label runat="server" ID="Label3">Telefoonnummer:</asp:Label>
+                    <asp:Label runat="server" ID="LabelTelefoonnummer">Telefoonnummer:</asp:Label>
                 </div>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBoxRegistreerTelefoonnummer" runat="server" />
+                <asp:Label ID="LabelRegistreerTelefoonnummer" runat="server" />
             </div>
         </div>
         <%--Einde registreer Telefoonnummer--%>
@@ -80,11 +76,11 @@
         <div class="row class1">
             <div class="col-md-2">
                 <div class="control-group row-fluid form-inline">
-                    <asp:Label runat="server" ID="Label4">Woonplaats:</asp:Label>
+                    <asp:Label runat="server" ID="LabelWoonplaats">Woonplaats:</asp:Label>
                 </div>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBoxRegistreerWoonplaats" runat="server" />
+                <asp:Label ID="LabelRegistreerWoonplaats" runat="server" />
             </div>
         </div>
         <%--Einde registreer Woonplaats--%>

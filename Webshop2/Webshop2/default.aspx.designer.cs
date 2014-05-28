@@ -13,33 +13,6 @@ namespace Webshop2 {
     public partial class _default {
         
         /// <summary>
-        /// Welcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Welcome;
-        
-        /// <summary>
-        /// Form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
-        
-        /// <summary>
-        /// Submit1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Submit1;
-        
-        /// <summary>
         /// LabelEmailRegistreer control.
         /// </summary>
         /// <remarks>
@@ -49,31 +22,40 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.Label LabelEmailRegistreer;
         
         /// <summary>
-        /// TextBoxRegistreerEmail control.
+        /// LabelRegistreerEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRegistreerEmail;
+        protected global::System.Web.UI.WebControls.Label LabelRegistreerEmail;
         
         /// <summary>
-        /// LabelRegistreer control.
+        /// LabelWachtRegistreer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelRegistreer;
+        protected global::System.Web.UI.WebControls.Label LabelWachtRegistreer;
         
         /// <summary>
-        /// TextBoxRegistreerWachtwoord control.
+        /// LabelRegistreerWachtwoord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRegistreerWachtwoord;
+        protected global::System.Web.UI.WebControls.Label LabelRegistreerWachtwoord;
+        
+        /// <summary>
+        /// LabelNaam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelNaam;
         
         /// <summary>
         /// LabelRegistreerNaam control.
@@ -85,13 +67,13 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.Label LabelRegistreerNaam;
         
         /// <summary>
-        /// TextBoxRegistreerNaam control.
+        /// LabelAdres control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRegistreerNaam;
+        protected global::System.Web.UI.WebControls.Label LabelAdres;
         
         /// <summary>
         /// LabelRegistreerAdres control.
@@ -103,48 +85,39 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.Label LabelRegistreerAdres;
         
         /// <summary>
-        /// TextBoxRegistreerAdres control.
+        /// LabelTelefoonnummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRegistreerAdres;
+        protected global::System.Web.UI.WebControls.Label LabelTelefoonnummer;
         
         /// <summary>
-        /// Label3 control.
+        /// LabelRegistreerTelefoonnummer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LabelRegistreerTelefoonnummer;
         
         /// <summary>
-        /// TextBoxRegistreerTelefoonnummer control.
+        /// LabelWoonplaats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRegistreerTelefoonnummer;
+        protected global::System.Web.UI.WebControls.Label LabelWoonplaats;
         
         /// <summary>
-        /// Label4 control.
+        /// LabelRegistreerWoonplaats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// TextBoxRegistreerWoonplaats control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRegistreerWoonplaats;
+        protected global::System.Web.UI.WebControls.Label LabelRegistreerWoonplaats;
     }
 }

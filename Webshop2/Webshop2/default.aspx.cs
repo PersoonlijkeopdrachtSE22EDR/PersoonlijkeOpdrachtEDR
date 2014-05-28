@@ -12,14 +12,15 @@ namespace Webshop2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Welcome.Text = "Hello, " + Context.User.Identity.Name;
-            this.Title = Site1.UpdateTitle("Welkom");
-        }
-
-        protected void Signout_Click(object sender, EventArgs e)
-        {
-            FormsAuthentication.SignOut();
-            Response.Redirect("Login.aspx");
+            this.Title = Site1.UpdateTitle("Account");
+            Webshop webshop = new Webshop();
+            Account account = webshop.getAccountByEmail(Context.User.Identity.Name);
+            LabelRegistreerEmail.Text = account.Gebruikersnaam;
+            LabelRegistreerNaam.Text = account.Naam;
+            LabelRegistreerAdres.Text = account.Adres;
+            LabelRegistreerTelefoonnummer.Text = account.Telefoonnummer;
+            LabelRegistreerWoonplaats.Text = account.Woonplaats;
+            Session["gebruikersnaam"] = account.Gebruikersnaam;
         }
     }
 }

@@ -40,6 +40,11 @@ namespace Webshop2
             return account;
         }
 
+        public Account getAccountByEmail(string gebruikersnaam)
+        {
+            Account account = Account.GetAccountByGebruikersnaam(gebruikersnaam);
+            return account;
+        }
 
     }
 }

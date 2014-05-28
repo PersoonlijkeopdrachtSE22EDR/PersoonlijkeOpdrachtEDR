@@ -50,8 +50,21 @@ namespace Webshop2
                 Database.InsertData(cmd);
                 return true;
             }
+        }
 
-            
+        public static Account GetAccountByGebruikersnaam(string gebruikersnaam)
+        {
+            OracleCommand getCmd = new OracleCommand("SELECT EMAILADRES, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email");
+            getCmd.Parameters.Add(new OracleParameter("email", gebruikersnaam));
+            DataTable dt = Database.getDataParameters(getCmd);
+            Account account;
+            foreach(DataRow row in dt.Rows)
+            {
+                account = new Account(row["EMAILADRES"].ToString(), row["NAAM"].ToString(), row["ADRES"].ToString(), row["TELEFOONNUMMER"].ToString(), row["WOONPLAATS"].ToString());
+                return account;
+            }
+            return null;
+        
         }
     }
 }

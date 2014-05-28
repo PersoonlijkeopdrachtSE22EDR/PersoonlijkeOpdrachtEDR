@@ -62,5 +62,16 @@ namespace Webshop2
             this.Telefoonnummer = telefoonnummer;
             this.Woonplaats = woonplaats;
         }
+
+        public Account (string gebruikersnaam, string naam, string adres, string telefoonnummer, string woonplaats)
+        {
+            this.Gebruikersnaam = gebruikersnaam;
+            this.Naam = naam;
+            this.Adres = adres;
+            this.Telefoonnummer = telefoonnummer;
+            this.Woonplaats = woonplaats;
+        }
+
+
     }
 }
