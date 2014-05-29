@@ -74,13 +74,13 @@ namespace Webshop2
 
         public Bestelling VoegToeBestelling(Winkelwagen winkelwagen)
         {
-            int artikelnummer;
+            int artikelnummer = 0;
             DataTable dt = Database.getData("SELECT MAX(BESTELLINGNR) as maxNummer FROM BESTELLING");
             foreach(DataRow row in dt.Rows)
             {
                 artikelnummer = Convert.ToInt32(row["maxNummer"]) + 1;
             }
-            Bestelling bestelling = new Bestelling(artikelnummer, winkelwagen.account.gebruikersnaam, DateTime.Today.ToString());
+            Bestelling bestelling = new Bestelling(artikelnummer, winkelwagen.Account.Gebruikersnaam, DateTime.Today.ToString());
             return bestelling;
         }
 

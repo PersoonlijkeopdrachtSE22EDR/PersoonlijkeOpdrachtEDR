@@ -30,10 +30,14 @@ namespace Webshop2
             this.Account = account;
         }
 
-        //nog een constructor?
-
-        public void VoegToeProductregel(Productregel productregel)
+        public void VoegProductToeAanWinkelwagen(Product product, int hoeveelheid)
         {
+            if(Productregels == null)
+            {
+                Productregels = new List<Productregel>();
+            }
+            Productregel productregel = new Productregel(product, hoeveelheid);
+            Productregel.VoegProductregelToe(Account, productregel);
             Productregels.Add(productregel);
         }
 
@@ -49,7 +53,7 @@ namespace Webshop2
 
         public decimal BerekenPrijs()
         {
-            decimal totaalPrijs;
+            decimal totaalPrijs = 0;
             foreach(Productregel productregel in Productregels)
             {
                 totaalPrijs += productregel.Prijs;

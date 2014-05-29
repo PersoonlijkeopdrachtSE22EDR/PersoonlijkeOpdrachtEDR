@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Webshop2
 {
-    public class Productregel
+    public partial class Productregel
     {
         public Product Product
         {
@@ -26,19 +26,23 @@ namespace Webshop2
 
         }
 
-        public Productregel()
-        {
-        }
-
-        public void VoegToeProduct(Product product)
+        public Productregel(Product product, int hoeveelheid)
         {
             this.Product = product;
+            this.Hoeveelheid = hoeveelheid;
+            this.Prijs = BerekenPrijs(hoeveelheid, product.Prijs);
         }
 
         public decimal BerekenPrijs(int hoeveelheid, decimal prijs)
         {
             decimal totaalPrijs = hoeveelheid * prijs;
             return totaalPrijs;
+        }
+
+        public override string ToString()
+        {
+            string productregelstring;
+            return productregelstring = "Artikelnummer: " + Product.Artikelnummer.ToString() + ", Productnaam: " + Product.Productnaam + ", Prijs: €" + Product.Prijs.ToString() + ", Hoeveelheid: " + Hoeveelheid.ToString() + ", Totaalprijs: " + BerekenPrijs(Hoeveelheid, Product.Prijs).ToString();
         }
     }
 }

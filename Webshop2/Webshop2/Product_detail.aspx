@@ -14,5 +14,6 @@
     <br />
     <form runat="server">
         <asp:LinkButton runat="server" CssClass="btn btn-primary" ID="ButtonBestel" OnClick="ButtonBestel_Click">Voeg Toe <i class="glyphicon glyphicon-shopping-cart"></i></asp:LinkButton>
+        <asp:TextBox runat="server" ID="TextboxHoeveelheid"></asp:TextBox>
     </form>
 </asp:Content>

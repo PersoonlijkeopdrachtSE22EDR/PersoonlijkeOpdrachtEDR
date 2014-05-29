@@ -78,6 +78,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Winkelwagen.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="default.aspx.cs">
@@ -118,6 +119,7 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Product.database.cs" />
     <Compile Include="Model\Productregel.cs" />
+    <Compile Include="Model\Productregel.database.cs" />
     <Compile Include="Model\Reactie.cs" />
     <Compile Include="Model\Reactie.database.cs" />
     <Compile Include="Model\Wasmachine.cs" />
@@ -139,6 +141,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Winkelwagen.aspx.cs">
+      <DependentUpon>Winkelwagen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Winkelwagen.aspx.designer.cs">
+      <DependentUpon>Winkelwagen.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

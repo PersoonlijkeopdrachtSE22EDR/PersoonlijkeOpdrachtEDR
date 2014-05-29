@@ -14,7 +14,7 @@ namespace Webshop2
         {
             this.Title = Site1.UpdateTitle("Account");
             Webshop webshop = new Webshop();
-            Account account = webshop.getAccountByEmail(Context.User.Identity.Name);
+            Account account = Account.GetAccountByGebruikersnaam(Context.User.Identity.Name);
             if (account != null)
             {
                 LabelRegistreerEmail.Text = account.Gebruikersnaam;
