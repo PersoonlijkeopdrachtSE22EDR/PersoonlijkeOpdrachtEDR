@@ -37,7 +37,7 @@
                     <%#Eval("Productnaam")%>
                     <br />
                     <label>
-                        Prijs:</label>
+                        Prijs:</label> €
                     <%#Eval("Prijs")%>
 
                     <br />
@@ -46,7 +46,7 @@
                     <%#Eval("Beschrijving")%>
                     <br />
                     <br />
-                    <asp:LinkButton runat="server" Style="margin-left:25%" CssClass="btn btn-success" Text="Bestel nu!"></asp:LinkButton>
+                    <asp:LinkButton runat="server" Style="margin-left:25%" CssClass="btn btn-success" Text="Bekijk" OnClick="Product_Click" CommandArgument='<%#Eval("Artikelnummer")%>'></asp:LinkButton>
                 </td>
             </ItemTemplate>
         </asp:ListView>

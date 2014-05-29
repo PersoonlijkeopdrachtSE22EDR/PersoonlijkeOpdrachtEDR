@@ -22,5 +22,18 @@ namespace Webshop2
 
             return Producten;
         }
+
+        public static Product GetProductByArtikelnummer(int artikelnummer)
+        {
+            OracleCommand Getcmd = new OracleCommand("SELECT ARTIKELNUMMER, PRODUCTNAAM, PRIJS, BESCHRIJVING, SOORT FROM PRODUCT WHERE ARTIKELNUMMER = :artikelnummer");
+            Getcmd.Parameters.Add("artikelnummer", artikelnummer);
+            DataTable dt = Database.getDataParameters(Getcmd);
+            foreach(DataRow row in dt.Rows)
+            {
+                Product product = new Product(Convert.ToInt32(row["ARTIKELNUMMER"]), row["PRODUCTNAAM"].ToString(), Convert.ToDecimal(row["PRIJS"]), row["BESCHRIJVING"].ToString());
+                return product;
+            }
+            return null;
+        }
     }
 }

@@ -14,7 +14,14 @@ namespace Webshop2
             Webshop webshop = new Webshop();
             listviewProducten.DataSource = webshop.Producten;
             listviewProducten.DataBind();
-            
+        }
+
+        protected void Product_Click(object sender, EventArgs e)
+        {
+            LinkButton button = (LinkButton)sender;
+            Session["artikelnummer"] = Convert.ToInt32(button.CommandArgument);
+
+            Response.Redirect("Product_detail.aspx");
         }
     }
 }
