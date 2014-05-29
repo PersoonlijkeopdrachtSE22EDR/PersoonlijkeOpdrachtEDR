@@ -15,12 +15,19 @@ namespace Webshop2
             this.Title = Site1.UpdateTitle("Account");
             Webshop webshop = new Webshop();
             Account account = webshop.getAccountByEmail(Context.User.Identity.Name);
-            LabelRegistreerEmail.Text = account.Gebruikersnaam;
-            LabelRegistreerNaam.Text = account.Naam;
-            LabelRegistreerAdres.Text = account.Adres;
-            LabelRegistreerTelefoonnummer.Text = account.Telefoonnummer;
-            LabelRegistreerWoonplaats.Text = account.Woonplaats;
-            Session["gebruikersnaam"] = account.Gebruikersnaam;
+            if (account != null)
+            {
+                LabelRegistreerEmail.Text = account.Gebruikersnaam;
+                LabelRegistreerNaam.Text = account.Naam;
+                LabelRegistreerAdres.Text = account.Adres;
+                LabelRegistreerTelefoonnummer.Text = account.Telefoonnummer;
+                LabelRegistreerWoonplaats.Text = account.Woonplaats;
+                Session["gebruikersnaam"] = account.Gebruikersnaam;
+            }
+            else
+            {
+                FormsAuthentication.RedirectToLoginPage();
+            }
         }
     }
 }

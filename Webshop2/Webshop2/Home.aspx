@@ -10,7 +10,7 @@
                 <table>
                     <tr>
                         <td>
-                            <table border="0">
+                            <table border="1">
                                 <asp:PlaceHolder runat="server" ID="groupPlaceHolder"></asp:PlaceHolder>
                             </table>
                         </td>

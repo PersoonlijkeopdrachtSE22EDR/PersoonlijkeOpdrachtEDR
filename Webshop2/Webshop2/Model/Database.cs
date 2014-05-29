@@ -81,7 +81,7 @@ namespace Webshop2
             }
             finally
             {
-                conn.Clone();
+                conn.Close();
             }
         }
     }
