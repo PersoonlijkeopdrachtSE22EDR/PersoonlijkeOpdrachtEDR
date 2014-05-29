@@ -39,12 +39,27 @@ namespace Webshop2
             }
         }
 
+        public string Soort
+        {
+            get;
+            set;
+        }
+
         public Product(int artikelnummer, string productnaam, decimal prijs, string beschrijving)
         {
             this.Artikelnummer = artikelnummer;
             this.Productnaam = productnaam;
             this.Prijs = prijs;
             this.Beschrijving = beschrijving;
+        }
+
+        public Product(int artikelnummer, string productnaam, decimal prijs, string beschrijving, string soort)
+        {
+            this.Artikelnummer = artikelnummer;
+            this.Productnaam = productnaam;
+            this.Prijs = prijs;
+            this.Beschrijving = beschrijving;
+            this.Soort = soort;
         }
     }
 }

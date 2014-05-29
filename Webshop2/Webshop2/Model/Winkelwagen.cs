@@ -7,5 +7,55 @@ namespace Webshop2
 {
     public class Winkelwagen
     {
+        public Account Account
+        {
+            get;
+            set;
+        }
+
+        public decimal Prijs
+        {
+            get;
+            set;
+        }
+
+        public List<Productregel> Productregels
+        {
+            get;
+            set;
+        }
+
+        public Winkelwagen(Account account)
+        {
+            this.Account = account;
+        }
+
+        //nog een constructor?
+
+        public void VoegToeProductregel(Productregel productregel)
+        {
+            Productregels.Add(productregel);
+        }
+
+        public void VerwijderProductregel(Productregel productregel)
+        {
+            Productregels.Remove(productregel);
+        }
+
+        public void MaakWinkelwagenleeg()
+        {
+            Productregels.Clear();
+        }
+
+        public decimal BerekenPrijs()
+        {
+            decimal totaalPrijs;
+            foreach(Productregel productregel in Productregels)
+            {
+                totaalPrijs += productregel.Prijs;
+            }
+            
+            return totaalPrijs;
+        }
     }
 }
