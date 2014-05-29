@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3>Home pagina test</h3>
+    <h3>Producten</h3>
     <form runat="server" >
         <asp:ListView runat="server" ID="listviewProducten" GroupItemCount="3" >
             <LayoutTemplate>
@@ -46,7 +46,7 @@
                     <%#Eval("Beschrijving")%>
                     <br />
                     <br />
-                    <asp:LinkButton runat="server" Style="margin-left:25%" CssClass="btn btn-success" Text="Bekijk" OnClick="Product_Click" CommandArgument='<%#Eval("Artikelnummer")%>'></asp:LinkButton>
+                    <asp:LinkButton runat="server" Style="margin-left:38%" CssClass="btn btn-primary" Text="Bekijk" OnClick="Product_Click" CommandArgument='<%#Eval("Artikelnummer")%>'></asp:LinkButton>
                 </td>
             </ItemTemplate>
         </asp:ListView>
