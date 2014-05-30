@@ -18,7 +18,8 @@ namespace Webshop2
             DataTable dt = Database.getDataParameters(getCmd);
             foreach(DataRow row in dt.Rows)
             {
-                Bestelling bestelling = new Bestelling(Convert.ToInt32(row["BESTELLINGNR"]), row["EMAILADRES"].ToString(), row["DATUMTIJD"].ToString());
+                DateTime datum = Convert.ToDateTime(row["DATUMTIJD"]);
+                Bestelling bestelling = new Bestelling(Convert.ToInt32(row["BESTELLINGNR"]), row["EMAILADRES"].ToString(), datum.ToString("dd-MM-yyyy"));
                 Bestellingen.Add(bestelling);
             }
 
@@ -35,7 +36,8 @@ namespace Webshop2
                 {
                     bestellingnr = 0;
                 }
-                bestellingnr = +1;
+                bestellingnr = Convert.ToInt32(row["maxNummer"]);
+                bestellingnr += 1;
             }
             return bestellingnr;
         }
