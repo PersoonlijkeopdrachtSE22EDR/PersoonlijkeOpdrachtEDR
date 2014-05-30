@@ -11,6 +11,7 @@ namespace Webshop2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            decimal prijs = 0;
             if (Session["gebruikersnaam"] != null)
             {
                 Account account = Account.GetAccountByGebruikersnaam(Context.User.Identity.Name);
@@ -23,7 +24,9 @@ namespace Webshop2
                     TableCell tc = new TableCell();
                     tr.Cells.Add(tc);
                     tc.Text = productregel.ToString();
+                    prijs += productregel.Prijs;
                 }
+                labelFooter.Text = "Totaalprijs: €" + prijs.ToString();
             }
             else
             {

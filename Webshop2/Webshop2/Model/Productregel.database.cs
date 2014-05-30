@@ -23,6 +23,7 @@ namespace Webshop2
                 {
                     nieuw = false;
                     OracleCommand updateCmd = new OracleCommand("UPDATE WINKELWAGEN SET HOEVEELHEID = :hoeveelheid WHERE ARTIKELNUMMER = :artikelnummer AND EMAILADRES = :email");
+                    updateCmd.Parameters.Add("hoeveelheid", productregel.Hoeveelheid);
                     updateCmd.Parameters.Add("artikelnummer", productregel.Product.Artikelnummer);
                     updateCmd.Parameters.Add("email", account.Gebruikersnaam);
                     Database.InsertData(updateCmd);
