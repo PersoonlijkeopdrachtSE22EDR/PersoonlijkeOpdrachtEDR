@@ -30,6 +30,13 @@ namespace Webshop2
             this.Account = account;
         }
 
+        public Winkelwagen(Account account, List<Productregel> productregels)
+        {
+            this.Account = account;
+            this.Productregels = productregels;
+            this.Prijs = BerekenPrijs();
+        }
+
         public void VoegProductToeAanWinkelwagen(Product product, int hoeveelheid)
         {
             if(Productregels == null)
@@ -39,7 +46,6 @@ namespace Webshop2
             Productregel productregel = new Productregel(product, hoeveelheid);
             Productregel.VoegProductregelToe(Account, productregel);
             Productregels.Add(productregel);
-            Prijs = BerekenPrijs();
         }
 
         public void VerwijderProductregel(Productregel productregel)

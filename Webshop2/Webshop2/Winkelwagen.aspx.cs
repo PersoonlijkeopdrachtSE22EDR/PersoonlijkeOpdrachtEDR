@@ -33,9 +33,31 @@ namespace Webshop2
                     TableRow tr = new TableRow();
                     ProductenTabel.Rows.Add(tr);
 
-                    TableCell tc = new TableCell();
-                    tr.Cells.Add(tc);
-                    tc.Text = productregel.ToString();
+                    TableCell tcArtikelnummer = new TableCell();
+                    tr.Cells.Add(tcArtikelnummer);
+                    tcArtikelnummer.CssClass = "WinkelwagenCell";
+                    tcArtikelnummer.Text = "Artikelnummer:" + productregel.Product.Artikelnummer.ToString();
+
+
+                    TableCell tcProductnaam = new TableCell();
+                    tr.Cells.Add(tcProductnaam);
+                    tcProductnaam.CssClass = "WinkelwagenCell";
+                    tcProductnaam.Text = "Productnaam: " + productregel.Product.Productnaam;
+
+                    TableCell tcPrijs = new TableCell();
+                    tr.Cells.Add(tcPrijs);
+                    tcPrijs.CssClass = "WinkelwagenCell";
+                    tcPrijs.Text = "Prijs: €" + productregel.Product.Prijs.ToString();
+
+                    TableCell tcHoeveelheid = new TableCell();
+                    tr.Cells.Add(tcHoeveelheid);
+                    tcHoeveelheid.CssClass = "WinkelwagenCell";
+                    tcHoeveelheid.Text = "Hoeveelheid: " + productregel.Hoeveelheid.ToString();
+
+                    TableCell tcPrijsTotaal = new TableCell();
+                    tr.Cells.Add(tcPrijsTotaal);
+                    tcPrijsTotaal.CssClass = "WinkelwagenCell";
+                    tcPrijsTotaal.Text = "Totaal: €" + productregel.Prijs.ToString();
                     prijs += productregel.Prijs;
                 }
                 labelFooter.Text = "Totaalprijs: €" + prijs.ToString();
@@ -48,8 +70,7 @@ namespace Webshop2
 
         protected void Bestel_Click(object sender, EventArgs e)
         {
-            winkelwagen = new Winkelwagen(account);
-            winkelwagen.Productregels = productregels;
+            winkelwagen = new Winkelwagen(account, productregels);
             if(winkelwagen.Productregels.Count != 0)
             {
                 Bestelling bestelling = Bestelling.VoegToeBestelling(winkelwagen);
@@ -60,8 +81,7 @@ namespace Webshop2
 
         protected void LeegWinkelwagen_CLick(object sender, EventArgs e)
         {
-            winkelwagen = new Winkelwagen(account);
-            winkelwagen.Productregels = productregels;
+            winkelwagen = new Winkelwagen(account, productregels);
             winkelwagen.MaakWinkelwagenleeg();
             Response.Redirect("Winkelwagen.aspx");
         }
