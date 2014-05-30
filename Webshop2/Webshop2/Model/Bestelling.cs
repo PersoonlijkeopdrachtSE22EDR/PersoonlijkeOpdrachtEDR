@@ -88,7 +88,7 @@ namespace Webshop2
         {
             int artikelnummer = 0;
             artikelnummer = Bestelling.GetBestellingNr();
-            Bestelling bestelling = new Bestelling(artikelnummer, winkelwagen,  DateTime.Today.ToString("dd-mon-yyyy"));
+            Bestelling bestelling = new Bestelling(artikelnummer, winkelwagen,  DateTime.Today.ToString("dd-MMM-yyyy"));
             return bestelling;
         }
     }

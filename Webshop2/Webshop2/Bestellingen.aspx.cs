@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace Webshop2
 {
@@ -11,10 +12,13 @@ namespace Webshop2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Bestelling> Bestellingen = Bestelling.GetBestellingen((string)Session["gebruikersnaam"].ToString());
+            if (Session["gebruikersnaam"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
+            }
 
-            repeaterBestelling.DataSource = Bestellingen;
-            repeaterBestelling.DataBind();
+
         }
     }
 }

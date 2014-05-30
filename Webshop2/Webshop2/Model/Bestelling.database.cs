@@ -27,13 +27,17 @@ namespace Webshop2
 
         public static int GetBestellingNr()
         {
-            int artikelnummer = 0;
+            int bestellingnr = 0;
             DataTable dt = Database.getData("SELECT MAX(BESTELLINGNR) as maxNummer FROM BESTELLING");
             foreach (DataRow row in dt.Rows)
             {
-                artikelnummer = Convert.ToInt32(row["maxNummer"]) + 1;
+                if(DBNull.Value.Equals(row["maxNummer"]))
+                {
+                    bestellingnr = 0;
+                }
+                bestellingnr = +1;
             }
-            return artikelnummer;
+            return bestellingnr;
         }
 
         public static bool VoegToeBestelling(Bestelling bestelling)
@@ -51,6 +55,7 @@ namespace Webshop2
                 cmdBestellingProduct.Parameters.Add("bestellingnr", bestelling.BestellingNr);
                 cmdBestellingProduct.Parameters.Add("artikelnummer", productregel.Product.Artikelnummer);
                 cmdBestellingProduct.Parameters.Add("aantal", productregel.Hoeveelheid);
+                Database.InsertData(cmdBestellingProduct);
                 isGelukt = true;
             }
             return isGelukt;            
