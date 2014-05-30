@@ -56,5 +56,12 @@ namespace Webshop2
             }
             return Productregels;
         }
+
+        public static void VerwijderProductregels(string gebruikersnaam)
+        {
+            OracleCommand verwijderCmd = new OracleCommand("DELETE FROM WINKELWAGEN WHERE EMAILADRES = :email");
+            verwijderCmd.Parameters.Add("email", gebruikersnaam);
+            Database.InsertData(verwijderCmd);
+        }
     }
 }

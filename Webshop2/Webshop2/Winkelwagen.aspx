@@ -12,6 +12,7 @@
         <div class="panel panel-footer"><asp:label runat="server" ID="labelFooter"></asp:label></div>
     </div>
     <form runat="server">
-        <asp:Button runat="server" ID="ButtonBestel" OnClick="Bestel_Click" CssClass="btn btn-success" />
+        <asp:Button runat="server" Text="Plaats bestelling" ID="ButtonBestel" OnClick="Bestel_Click" CssClass="btn btn-success" />
+        <asp:Button runat="server" Text="Maak winkelwagen leeg" ID="ButtonLeegWinkelwagen" OnClick="LeegWinkelwagen_CLick" CssClass="btn btn-danger" />
     </form>
 </asp:Content>

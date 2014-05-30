@@ -39,27 +39,29 @@ namespace Webshop2
             Productregel productregel = new Productregel(product, hoeveelheid);
             Productregel.VoegProductregelToe(Account, productregel);
             Productregels.Add(productregel);
+            Prijs = BerekenPrijs();
         }
 
         public void VerwijderProductregel(Productregel productregel)
         {
+            //database verwijdering
             Productregels.Remove(productregel);
         }
 
         public void MaakWinkelwagenleeg()
         {
+            Productregel.VerwijderProductregels(Account.Gebruikersnaam);
             Productregels.Clear();
         }
 
         public decimal BerekenPrijs()
         {
-            decimal totaalPrijs = 0;
             foreach(Productregel productregel in Productregels)
             {
-                totaalPrijs += productregel.Prijs;
+                Prijs += productregel.Prijs;
             }
-            
-            return totaalPrijs;
+
+            return Prijs;
         }
     }
 }

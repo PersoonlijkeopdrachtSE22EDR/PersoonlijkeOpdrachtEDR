@@ -11,13 +11,23 @@ namespace Webshop2
     {
         List<Productregel> productregels;
         Account account;
+        Winkelwagen winkelwagen;
         protected void Page_Load(object sender, EventArgs e)
         {
             decimal prijs = 0;
             if (Session["gebruikersnaam"] != null)
             {
-                account = Account.GetAccountByGebruikersnaam(Context.User.Identity.Name);
+                account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
                 productregels =  Productregel.GetProductregels(account);
+                if(productregels.Count == 0)
+                {
+                    TableRow RowLeeg = new TableRow();
+                    ProductenTabel.Rows.Add(RowLeeg);
+
+                    TableCell CellLeeg = new TableCell();
+                    RowLeeg.Cells.Add(CellLeeg);
+                    CellLeeg.Text = "Geen producten in winkelwagen";
+                }
                 foreach (Productregel productregel in productregels)
                 {
                     TableRow tr = new TableRow();
@@ -38,10 +48,22 @@ namespace Webshop2
 
         protected void Bestel_Click(object sender, EventArgs e)
         {
-           // Bestelling bestelling = new Bestelling(1, (string)Session["gebruikersnaam"].ToString(), DateTime.Today.ToString());
-            Winkelwagen winkelwagen = new Winkelwagen(account);
+            winkelwagen = new Winkelwagen(account);
             winkelwagen.Productregels = productregels;
-            Bestelling bestelling = Bestelling.VoegToeBestelling(winkelwagen);
+            if(winkelwagen.Productregels.Count != 0)
+            {
+                Bestelling bestelling = Bestelling.VoegToeBestelling(winkelwagen);
+                bestelling.PlaatsBestelling(bestelling);
+                Response.Redirect("Winkelwagen.aspx");
+            }
+        }
+
+        protected void LeegWinkelwagen_CLick(object sender, EventArgs e)
+        {
+            winkelwagen = new Winkelwagen(account);
+            winkelwagen.Productregels = productregels;
+            winkelwagen.MaakWinkelwagenleeg();
+            Response.Redirect("Winkelwagen.aspx");
         }
     }
 }
