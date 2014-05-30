@@ -9,13 +9,15 @@ namespace Webshop2
 {
     public partial class Winkelwagen1 : System.Web.UI.Page
     {
+        List<Productregel> productregels;
+        Account account;
         protected void Page_Load(object sender, EventArgs e)
         {
             decimal prijs = 0;
             if (Session["gebruikersnaam"] != null)
             {
-                Account account = Account.GetAccountByGebruikersnaam(Context.User.Identity.Name);
-                List<Productregel> productregels =  Productregel.GetProductregels(account);
+                account = Account.GetAccountByGebruikersnaam(Context.User.Identity.Name);
+                productregels =  Productregel.GetProductregels(account);
                 foreach (Productregel productregel in productregels)
                 {
                     TableRow tr = new TableRow();
@@ -36,7 +38,10 @@ namespace Webshop2
 
         protected void Bestel_Click(object sender, EventArgs e)
         {
-
+           // Bestelling bestelling = new Bestelling(1, (string)Session["gebruikersnaam"].ToString(), DateTime.Today.ToString());
+            Winkelwagen winkelwagen = new Winkelwagen(account);
+            winkelwagen.Productregels = productregels;
+            Bestelling bestelling = Bestelling.VoegToeBestelling(winkelwagen);
         }
     }
 }

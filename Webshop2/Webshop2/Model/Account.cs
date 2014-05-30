@@ -72,17 +72,5 @@ namespace Webshop2
             this.Woonplaats = woonplaats;
         }
 
-        public Bestelling VoegToeBestelling(Winkelwagen winkelwagen)
-        {
-            int artikelnummer = 0;
-            DataTable dt = Database.getData("SELECT MAX(BESTELLINGNR) as maxNummer FROM BESTELLING");
-            foreach(DataRow row in dt.Rows)
-            {
-                artikelnummer = Convert.ToInt32(row["maxNummer"]) + 1;
-            }
-            Bestelling bestelling = new Bestelling(artikelnummer, winkelwagen.Account.Gebruikersnaam, DateTime.Today.ToString());
-            return bestelling;
-        }
-
     }
 }

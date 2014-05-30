@@ -40,8 +40,7 @@ namespace Webshop2
                 Winkelwagen winkelwagen = new Winkelwagen(account);
                 winkelwagen.VoegProductToeAanWinkelwagen(product, Convert.ToInt32(TextboxHoeveelheid.Text));
                 Response.Redirect("Winkelwagen.aspx");
-                //Bestelling bestelling = new Bestelling(1, (string)Session["gebruikersnaam"].ToString(), DateTime.Today.ToString());
-               // bestelling.PlaatsBestelling((string)Session["gebruikersnaam"].ToString(), product);
+               
             }
         }
     }

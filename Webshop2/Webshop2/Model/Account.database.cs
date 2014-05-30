@@ -55,7 +55,7 @@ namespace Webshop2
         public static Account GetAccountByGebruikersnaam(string gebruikersnaam)
         {
             OracleCommand getCmd = new OracleCommand("SELECT EMAILADRES, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email");
-            getCmd.Parameters.Add(new OracleParameter("email", gebruikersnaam));
+            getCmd.Parameters.Add(new OracleParameter("email", gebruikersnaam.ToLower()));
             DataTable dt = Database.getDataParameters(getCmd);
             Account account;
             foreach(DataRow row in dt.Rows)
