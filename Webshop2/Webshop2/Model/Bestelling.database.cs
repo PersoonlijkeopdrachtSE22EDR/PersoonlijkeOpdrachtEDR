@@ -24,5 +24,36 @@ namespace Webshop2
 
             return Bestellingen;
         }
+
+        public static int GetBestellingNr()
+        {
+            int artikelnummer = 0;
+            DataTable dt = Database.getData("SELECT MAX(BESTELLINGNR) as maxNummer FROM BESTELLING");
+            foreach (DataRow row in dt.Rows)
+            {
+                artikelnummer = Convert.ToInt32(row["maxNummer"]) + 1;
+            }
+            return artikelnummer;
+        }
+
+        public static bool VoegToeBestelling(Bestelling bestelling)
+        {
+            bool isGelukt = false;
+            OracleCommand cmdBestelling = new OracleCommand("INSERT INTO BESTELLING VALUES(:bestellingnr, :email, :datum)");
+            cmdBestelling.Parameters.Add("bestellingnr", bestelling.BestellingNr);
+            cmdBestelling.Parameters.Add("email", bestelling.Winkelwagen.Account.Gebruikersnaam);
+            cmdBestelling.Parameters.Add("datum", bestelling.Datum);
+            Database.InsertData(cmdBestelling);
+
+            foreach(Productregel productregel in bestelling.Winkelwagen.Productregels)
+            {
+                OracleCommand cmdBestellingProduct = new OracleCommand("INSERT INTO BESTELLING_PRODUCT VALUES(:bestellingnr, :artikelnummer, :aantal)");
+                cmdBestellingProduct.Parameters.Add("bestellingnr", bestelling.BestellingNr);
+                cmdBestellingProduct.Parameters.Add("artikelnummer", productregel.Product.Artikelnummer);
+                cmdBestellingProduct.Parameters.Add("aantal", productregel.Hoeveelheid);
+                isGelukt = true;
+            }
+            return isGelukt;            
+        }
     }
 }

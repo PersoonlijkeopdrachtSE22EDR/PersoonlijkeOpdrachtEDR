@@ -61,6 +61,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bestellingen.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -81,6 +82,13 @@
     <Content Include="Winkelwagen.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bestellingen.aspx.cs">
+      <DependentUpon>Bestellingen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bestellingen.aspx.designer.cs">
+      <DependentUpon>Bestellingen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

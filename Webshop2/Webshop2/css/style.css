@@ -18,3 +18,9 @@ div.panel
 {
     margin-bottom:0px;
 }
+
+
+.list-group{
+    max-height: 300px;
+    overflow-y:scroll; 
+}

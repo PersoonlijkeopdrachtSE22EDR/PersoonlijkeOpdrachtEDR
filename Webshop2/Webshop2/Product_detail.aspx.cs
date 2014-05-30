@@ -25,6 +25,18 @@ namespace Webshop2
                 LabelProductnaam.Text = product.Productnaam;
                 LabelPrijs.Text = product.Prijs.ToString();
                 LabelBeschrijving.Text = product.Beschrijving;
+
+                List<Reactie> Reacties = Reactie.GetReactieByArtikelnummer(artikelnummer);
+                if (Reacties.Count != 0)
+                {
+                    repeaterReactie.DataSource = Reacties;
+                    repeaterReactie.DataBind();
+                }
+                else
+                {
+                    repeaterReactie.Visible = false;
+                    LabelReactieleeg.Text = "Er zijn geen reacties geplaatst bij dit product.";
+                }
             }
         }
 
@@ -42,6 +54,11 @@ namespace Webshop2
                 Response.Redirect("Winkelwagen.aspx");
                
             }
+        }
+
+        protected void ButtonWenslijst_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
