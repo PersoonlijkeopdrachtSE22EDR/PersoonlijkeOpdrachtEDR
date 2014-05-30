@@ -17,8 +17,12 @@ namespace Webshop2
                 FormsAuthentication.SignOut();
                 Response.Redirect("Login.aspx");
             }
-
-
+            else
+            {
+                List<Bestelling> bestellingen = Bestelling.GetBestellingen((string)Session["gebruikersnaam"]);
+                repeaterBestelling.DataSource = bestellingen;
+                repeaterBestelling.DataBind();
+            }
         }
     }
 }

@@ -3,12 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <form runat="server">
+        <h4>Bestelling die door U geplaatst zijn</h4>
+        <asp:Label runat="server" ID="LabelReactieleeg"></asp:Label>
         <ul class="list-group">
             <asp:Repeater runat="server" ID="repeaterBestelling">
-                <HeaderTemplate>
-                    <li class="list-group-item"><%#Eval("Opmerking" )%> </li>
-                </HeaderTemplate>
+                <ItemTemplate>
+                    <li class="list-group-item"> Bestellingnummer: <%#Eval("BestellingNr")%>, besteld op <%#Eval("Datum")%></li>
+                </ItemTemplate>
             </asp:Repeater>
         </ul>
     </form>
