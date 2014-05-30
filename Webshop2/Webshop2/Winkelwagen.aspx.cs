@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace Webshop2
 {
@@ -15,10 +16,12 @@ namespace Webshop2
         protected void Page_Load(object sender, EventArgs e)
         {
             decimal prijs = 0;
+
             if (Session["gebruikersnaam"] != null)
             {
                 account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
                 productregels =  Productregel.GetProductregels(account);
+
                 if(productregels.Count == 0)
                 {
                     TableRow RowLeeg = new TableRow();
@@ -28,6 +31,7 @@ namespace Webshop2
                     RowLeeg.Cells.Add(CellLeeg);
                     CellLeeg.Text = "Geen producten in winkelwagen";
                 }
+
                 foreach (Productregel productregel in productregels)
                 {
                     TableRow tr = new TableRow();
@@ -55,16 +59,16 @@ namespace Webshop2
                     tcHoeveelheid.Text = "Hoeveelheid: " + productregel.Hoeveelheid.ToString();
 
                     TableCell tcPrijsTotaal = new TableCell();
-                    tr.Cells.Add(tcPrijsTotaal);
                     tcPrijsTotaal.CssClass = "WinkelwagenCell";
                     tcPrijsTotaal.Text = "Totaal: €" + productregel.Prijs.ToString();
                     prijs += productregel.Prijs;
                 }
+
                 labelFooter.Text = "Totaalprijs: €" + prijs.ToString();
             }
             else
             {
-                Response.Redirect("Login.aspx");
+                FormsAuthentication.SignOut();
             }
         }
 

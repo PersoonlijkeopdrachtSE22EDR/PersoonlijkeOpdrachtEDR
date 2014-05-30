@@ -36,7 +36,10 @@ namespace Webshop2
                 {
                     bestellingnr = 0;
                 }
-                bestellingnr = Convert.ToInt32(row["maxNummer"]);
+                else
+                {
+                    bestellingnr = Convert.ToInt32(row["maxNummer"]);
+                }
                 bestellingnr += 1;
             }
             return bestellingnr;
