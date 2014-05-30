@@ -13,7 +13,7 @@ namespace Webshop2
         public static Account CheckLogin(string gebruikersnaam, string wachtwoord)
         {
             OracleCommand cmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email AND WACHTWOORD = :wachtwoord");
-            cmd.Parameters.Add(new OracleParameter("email", gebruikersnaam));
+            cmd.Parameters.Add(new OracleParameter("email", gebruikersnaam.ToLower()));
             cmd.Parameters.Add(new OracleParameter("wachtwoord", wachtwoord));
             DataTable dt = Database.getDataParameters(cmd);
 

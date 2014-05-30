@@ -32,7 +32,7 @@ namespace Webshop2
         public static bool VoegAccountToe(Account account)
         {
             OracleCommand checkCmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD FROM ACCOUNTS WHERE EMAILADRES = :email");
-            checkCmd.Parameters.Add(new OracleParameter("email", account.Gebruikersnaam));
+            checkCmd.Parameters.Add(new OracleParameter("email", account.Gebruikersnaam.ToLower()));
             DataTable dt = Database.getDataParameters(checkCmd);
             if(dt.Rows.Count > 0)
             {
@@ -41,7 +41,7 @@ namespace Webshop2
             else 
             {
                 OracleCommand cmd = new OracleCommand("INSERT INTO ACCOUNTS (EMAILADRES, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS) VALUES(:email, :wachtwoord, :naam, :adres, :telefoonnummer, :woonplaats)");
-                cmd.Parameters.Add("email", account.Gebruikersnaam);
+                cmd.Parameters.Add("email", account.Gebruikersnaam.ToLower());
                 cmd.Parameters.Add("wachtwoord", account.wachtwoord);
                 cmd.Parameters.Add("naam", account.Naam);
                 cmd.Parameters.Add("adres", account.Adres);
