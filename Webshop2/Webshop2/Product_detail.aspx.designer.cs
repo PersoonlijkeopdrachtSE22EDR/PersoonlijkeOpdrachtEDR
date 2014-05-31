@@ -58,15 +58,6 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.Label LabelBeschrijving;
         
         /// <summary>
-        /// ButtonBestel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ButtonBestel;
-        
-        /// <summary>
         /// TextboxHoeveelheid control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,15 @@ namespace Webshop2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextboxHoeveelheid;
+        
+        /// <summary>
+        /// ButtonBestel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ButtonBestel;
         
         /// <summary>
         /// ButtonWenslijst control.
@@ -101,5 +101,23 @@ namespace Webshop2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repeaterReactie;
+        
+        /// <summary>
+        /// TextboxPlaatsReactie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextboxPlaatsReactie;
+        
+        /// <summary>
+        /// ButtonPlaatsreactie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ButtonPlaatsreactie;
     }
 }

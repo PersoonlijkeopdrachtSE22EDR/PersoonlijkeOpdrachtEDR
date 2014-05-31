@@ -21,7 +21,16 @@ namespace Webshop2
                 Reacties.Add(reactie);
             }
             return Reacties;
+        }
 
+        public static void PlaatsReactie(Reactie reactie, Product product)
+        {
+            OracleCommand insertCmd = new OracleCommand("INSERT INTO REACTIE VALUES(:email, :artikelnummer, :opmerking, :datum)");
+            insertCmd.Parameters.Add("email", reactie.Account.Gebruikersnaam);
+            insertCmd.Parameters.Add("artikelnummer", product.Artikelnummer);
+            insertCmd.Parameters.Add("opmerking", reactie.Opmerking);
+            insertCmd.Parameters.Add("datum", reactie.DatumTijd);
+            Database.InsertData(insertCmd);
         }
     }
 }

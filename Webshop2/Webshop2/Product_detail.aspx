@@ -19,12 +19,11 @@
     <br />
     <br />
     <form runat="server">
-        <asp:LinkButton runat="server" CssClass="btn btn-primary" ID="ButtonBestel" OnClick="ButtonBestel_Click">Voeg Toe <i class="glyphicon glyphicon-shopping-cart"></i></asp:LinkButton>
         <asp:TextBox runat="server" ID="TextboxHoeveelheid" Text="1"></asp:TextBox>
-        
+        <asp:LinkButton runat="server" CssClass="btn btn-primary" ID="ButtonBestel" OnClick="ButtonBestel_Click">Winkelwagen <i class="glyphicon glyphicon-shopping-cart"></i></asp:LinkButton>
         <br />
         <br />
-        <asp:LinkButton runat="server" CssClass="btn btn-primary" ID="ButtonWenslijst" OnClick="ButtonWenslijst_Click">Voeg Toe aan wenslijst <i class="glyphicon glyphicon-plus"></i></asp:LinkButton>
+        <asp:LinkButton runat="server" CssClass="btn btn-primary" ID="ButtonWenslijst" OnClick="ButtonWenslijst_Click">Wenslijst <i class="glyphicon glyphicon-plus"></i></asp:LinkButton>
 
         <br />
         <br />
@@ -37,5 +36,8 @@
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
+
+        <asp:TextBox runat="server" ID="TextboxPlaatsReactie"></asp:TextBox>
+        <asp:LinkButton runat="server" ID="ButtonPlaatsreactie" CssClass="btn btn-primary" OnClick="ButtonPlaatsReactie_Click">Reactie <i class="glyphicon glyphicon-plus"></i></asp:LinkButton>
     </form>
 </asp:Content>

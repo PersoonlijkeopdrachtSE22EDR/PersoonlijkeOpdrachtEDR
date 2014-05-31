@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace Webshop2
 {
@@ -44,7 +45,7 @@ namespace Webshop2
         {
             if (Session["gebruikersnaam"] == null)
             {
-                Response.Redirect("Login.aspx");
+                FormsAuthentication.SignOut();
             }
             else
             {
@@ -58,6 +59,23 @@ namespace Webshop2
 
         protected void ButtonWenslijst_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void ButtonPlaatsReactie_Click(object sender, EventArgs e)
+        {
+            if (Session["gebruikersnaam"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
+                Reactie reactie = new Reactie(account.Gebruikersnaam, TextboxPlaatsReactie.Text, DateTime.Today.ToString("dd-MMM-yyyy"));
+                product.PlaatsReactie(reactie);
+                Response.Redirect("Product_detail.aspx");
+            }
             
         }
     }

@@ -61,5 +61,12 @@ namespace Webshop2
             this.Beschrijving = beschrijving;
             this.Soort = soort;
         }
+
+        public void PlaatsReactie(Reactie reactie)
+        {
+            Reactie.PlaatsReactie(reactie, this);
+        }
     }
+
+
 }

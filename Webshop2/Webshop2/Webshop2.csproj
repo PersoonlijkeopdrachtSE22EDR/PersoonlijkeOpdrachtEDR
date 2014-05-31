@@ -79,6 +79,7 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Wenslijst.aspx" />
     <Content Include="Winkelwagen.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Wenslijst.aspx.cs">
+      <DependentUpon>Wenslijst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wenslijst.aspx.designer.cs">
+      <DependentUpon>Wenslijst.aspx</DependentUpon>
     </Compile>
     <Compile Include="Winkelwagen.aspx.cs">
       <DependentUpon>Winkelwagen.aspx</DependentUpon>

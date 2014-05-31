@@ -38,5 +38,7 @@ namespace Webshop2
             this.Opmerking = opmerking;
             this.DatumTijd = datumTijd;
         }
+
+
     }
 }
