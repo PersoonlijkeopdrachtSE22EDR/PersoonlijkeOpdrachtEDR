@@ -135,6 +135,7 @@
     <Compile Include="Model\Webshop.cs" />
     <Compile Include="Model\Webshop.database.cs" />
     <Compile Include="Model\Wenslijst.cs" />
+    <Compile Include="Model\Wenslijst.database.cs" />
     <Compile Include="Model\Winkelwagen.cs" />
     <Compile Include="Product_detail.aspx.cs">
       <DependentUpon>Product_detail.aspx</DependentUpon>

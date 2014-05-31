@@ -33,7 +33,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="Winkelwagen.aspx">Winkelwagen</a></li>
                             <li><a href="Bestellingen.aspx">Bestellingen</a></li>
-                            <li><a href="#">Wenslijst</a></li>
+                            <li><a href="Wenslijst.aspx">Wenslijst</a></li>
                             <li class="divider"></li>
                             <li><a href="default.aspx">Account</a></li>
                             <li class="divider"></li>

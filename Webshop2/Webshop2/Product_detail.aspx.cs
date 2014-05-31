@@ -53,13 +53,23 @@ namespace Webshop2
                 Winkelwagen winkelwagen = new Winkelwagen(account);
                 winkelwagen.VoegProductToeAanWinkelwagen(product, Convert.ToInt32(TextboxHoeveelheid.Text));
                 Response.Redirect("Winkelwagen.aspx");
-               
             }
         }
 
         protected void ButtonWenslijst_Click(object sender, EventArgs e)
         {
-            
+            if (Session["gebruikersnaam"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
+                Wenslijst wenslijst = new Wenslijst(account);
+                wenslijst.VoegToeProduct(product);
+                Response.Redirect("Wenslijst.aspx");
+            }
         }
 
         protected void ButtonPlaatsReactie_Click(object sender, EventArgs e)

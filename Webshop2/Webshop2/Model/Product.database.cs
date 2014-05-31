@@ -35,5 +35,20 @@ namespace Webshop2
             }
             return null;
         }
+
+        public static List<Product> GetProductenByEmail(string gebruikersnaam)
+        {
+            List<Product> Producten = new List<Product>();
+            OracleCommand getCmd = new OracleCommand("SELECT ARTIKELNUMMER, PRODUCTNAAM, PRIJS, BESCHRIJVING, SOORT  FROM PRODUCT WHERE ARTIKELNUMMER IN (SELECT ARTIKELNUMMER FROM wenslijst_product WHERE EMAILADRES = :email)");
+            getCmd.Parameters.Add("email", gebruikersnaam);
+            DataTable dt = Database.getDataParameters(getCmd);
+            foreach(DataRow row in dt.Rows)
+            {
+                Product product = new Product(Convert.ToInt32(row["ARTIKELNUMMER"]), row["PRODUCTNAAM"].ToString(), Convert.ToDecimal(row["PRIJS"]), row["BESCHRIJVING"].ToString());
+                Producten.Add(product);
+            }
+
+            return Producten;
+        }
     }
 }
