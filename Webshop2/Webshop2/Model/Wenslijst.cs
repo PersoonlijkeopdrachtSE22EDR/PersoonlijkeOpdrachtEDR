@@ -40,7 +40,7 @@ namespace Webshop2
 
         public void MaakWenslijstLeeg()
         {
-            //database
+            Wenslijst.VerwijderProducten(Account.Gebruikersnaam);
             Producten.Clear();
         }
     }

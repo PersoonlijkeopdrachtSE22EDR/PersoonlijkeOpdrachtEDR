@@ -31,7 +31,7 @@ namespace Webshop2
 
                     TableCell CellLeeg = new TableCell();
                     RowLeeg.Cells.Add(CellLeeg);
-                    CellLeeg.Text = "Geen producten in Uw wenslisjt";
+                    CellLeeg.Text = "Geen producten in Uw wenslijst.";
                 }
 
                 foreach(Product product in wenslijst.Producten)
@@ -56,6 +56,23 @@ namespace Webshop2
                 }
 
             }
+        }
+
+        protected void LeegWenslijst_Click(object sender, EventArgs e)
+        {
+            if (Session["gebruikersnaam"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                wenslijst = new Wenslijst(account);
+                wenslijst.MaakWenslijstLeeg();
+                Response.Redirect("Wenslijst.aspx");
+            }
+            
+
         }
     }
 }

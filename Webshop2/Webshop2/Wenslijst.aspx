@@ -9,5 +9,7 @@
             <asp:Table runat="server" ID="TabelWenslijst">
             </asp:Table>
         </div>
+        <br />
+        <asp:Button runat="server" Text="Maak wenslijst leeg" ID="ButtonLeegWenslijst" OnClick="LeegWenslijst_Click" CssClass="btn btn-danger" />
     </form>
 </asp:Content>

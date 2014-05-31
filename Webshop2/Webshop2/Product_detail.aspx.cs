@@ -46,6 +46,7 @@ namespace Webshop2
             if (Session["gebruikersnaam"] == null)
             {
                 FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
             }
             else
             {

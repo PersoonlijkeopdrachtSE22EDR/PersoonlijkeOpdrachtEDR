@@ -74,20 +74,36 @@ namespace Webshop2
 
         protected void Bestel_Click(object sender, EventArgs e)
         {
-            winkelwagen = new Winkelwagen(account, productregels);
-            if(winkelwagen.Productregels.Count != 0)
+            if (Session["gebruikersnaam"] == null)
             {
-                Bestelling bestelling = Bestelling.VoegToeBestelling(winkelwagen);
-                bestelling.PlaatsBestelling(bestelling);
-                Response.Redirect("Winkelwagen.aspx");
+                FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                winkelwagen = new Winkelwagen(account, productregels);
+                if (winkelwagen.Productregels.Count != 0)
+                {
+                    Bestelling bestelling = Bestelling.VoegToeBestelling(winkelwagen);
+                    bestelling.PlaatsBestelling(bestelling);
+                    Response.Redirect("Winkelwagen.aspx");
+                }
             }
         }
 
         protected void LeegWinkelwagen_CLick(object sender, EventArgs e)
         {
-            winkelwagen = new Winkelwagen(account, productregels);
-            winkelwagen.MaakWinkelwagenleeg();
-            Response.Redirect("Winkelwagen.aspx");
+            if (Session["gebruikersnaam"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                winkelwagen = new Winkelwagen(account, productregels);
+                winkelwagen.MaakWinkelwagenleeg();
+                Response.Redirect("Winkelwagen.aspx");
+            }
         }
     }
 }
