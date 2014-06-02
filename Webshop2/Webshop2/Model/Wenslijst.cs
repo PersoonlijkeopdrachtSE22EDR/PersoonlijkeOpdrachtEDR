@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Wenslijst.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,19 +35,19 @@ namespace Webshop2
         public void VoegToeProduct(Product product)
         {
             Wenslijst.VoegToeProduct(Account, product);
-            Producten.Add(product);
+            this.Producten.Add(product);
         }
 
         public void VerwijderProduct(Product product)
         {
             //database
-            Producten.Remove(product);
+            this.Producten.Remove(product);
         }
 
         public void MaakWenslijstLeeg()
         {
             Wenslijst.VerwijderProducten(Account.Gebruikersnaam);
-            Producten.Clear();
+            this.Producten.Clear();
         }
     }
 }

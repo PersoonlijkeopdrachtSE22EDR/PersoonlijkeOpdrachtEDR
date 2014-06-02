@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Reactie.database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,16 +17,16 @@ namespace Webshop2
     {
         public static List<Reactie> GetReactieByArtikelnummer(int artikelnummer)
         {
-            List<Reactie> Reacties = new List<Reactie>();
-            OracleCommand Getcmd = new OracleCommand("SELECT EMAILADRES, OPMERKING, DATUMTIJD FROM REACTIE WHERE ARTIKELNUMMER = :artikelnummer");
-            Getcmd.Parameters.Add("artikelnummer", artikelnummer);
-            DataTable dt = Database.getDataParameters(Getcmd);
+            List<Reactie> reacties = new List<Reactie>();
+            OracleCommand getcmd = new OracleCommand("SELECT EMAILADRES, OPMERKING, DATUMTIJD FROM REACTIE WHERE ARTIKELNUMMER = :artikelnummer");
+            getcmd.Parameters.Add("artikelnummer", artikelnummer);
+            DataTable dt = Database.GetDataParameters(getcmd);
             foreach(DataRow row in dt.Rows)
             {
                 Reactie reactie = new Reactie(row["EMAILADRES"].ToString(), row["OPMERKING"].ToString(), row["DATUMTIJD"].ToString());
-                Reacties.Add(reactie);
+                reacties.Add(reactie);
             }
-            return Reacties;
+            return reacties;
         }
 
         public static void PlaatsReactie(Reactie reactie, Product product)

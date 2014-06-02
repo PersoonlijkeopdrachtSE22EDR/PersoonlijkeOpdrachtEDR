@@ -128,7 +128,9 @@
     <Compile Include="Model\Laptop.cs" />
     <Compile Include="Model\Laptop.database.cs" />
     <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\Product.database.cs" />
+    <Compile Include="Model\Product.database.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Model\Productregel.cs" />
     <Compile Include="Model\Productregel.database.cs" />
     <Compile Include="Model\Reactie.cs" />

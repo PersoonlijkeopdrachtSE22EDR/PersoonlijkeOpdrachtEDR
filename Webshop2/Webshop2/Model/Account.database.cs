@@ -1,10 +1,16 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Account.database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
-using System.Data;
 
 namespace Webshop2
 {
@@ -12,8 +18,8 @@ namespace Webshop2
     {
         public static List<Account> GetAccounts()
         {
-            List<Account> Accounts = new List<Account>();
-            DataTable dt = Database.getData("SELECT EMAILADRES as email, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS");
+            List<Account> accounts = new List<Account>();
+            DataTable dt = Database.GetData("SELECT EMAILADRES as email, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS");
             foreach(DataRow row in dt.Rows)
             {
                 string email = row["email"].ToString();
@@ -24,16 +30,16 @@ namespace Webshop2
                 string woonplaats = row["WOONPLAATS"].ToString();
 
                 Account account = new Account(email, wachtwoord, naam, adres, telefoonnummer, woonplaats);
-                Accounts.Add(account);
+                accounts.Add(account);
             }
-            return Accounts;
+            return accounts;
         }
 
         public static bool VoegAccountToe(Account account)
         {
             OracleCommand checkCmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD FROM ACCOUNTS WHERE EMAILADRES = :email");
             checkCmd.Parameters.Add(new OracleParameter("email", account.Gebruikersnaam.ToLower()));
-            DataTable dt = Database.getDataParameters(checkCmd);
+            DataTable dt = Database.GetDataParameters(checkCmd);
             if(dt.Rows.Count > 0)
             {
                 return false;
@@ -56,7 +62,7 @@ namespace Webshop2
         {
             OracleCommand getCmd = new OracleCommand("SELECT EMAILADRES, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email");
             getCmd.Parameters.Add(new OracleParameter("email", gebruikersnaam.ToLower()));
-            DataTable dt = Database.getDataParameters(getCmd);
+            DataTable dt = Database.GetDataParameters(getCmd);
             Account account;
             foreach(DataRow row in dt.Rows)
             {
@@ -65,7 +71,5 @@ namespace Webshop2
             }
             return null;
         }
-
-
     }
 }

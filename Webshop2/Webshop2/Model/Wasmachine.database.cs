@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Wasmachine.database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +21,7 @@ namespace Webshop2
             Wasmachine wasmachine;
             OracleCommand getCmd = new OracleCommand("SELECT ARTIKELNUMMER, ENERGIEKLASSE, TOERENTAL, VULGEWICHT FROM WASMACHINE WHERE ARTIKELNUMMER = :artikelnummer");
             getCmd.Parameters.Add("artikelnummer", product.Artikelnummer);
-            DataTable dt = Database.getDataParameters(getCmd);
+            DataTable dt = Database.GetDataParameters(getCmd);
             foreach (DataRow row in dt.Rows)
             {
                 wasmachine = new Wasmachine(row["ENERGIEKLASSE"].ToString(), row["TOERENTAL"].ToString(), row["VULGEWICHT"].ToString(), product.Artikelnummer, product.Productnaam, product.Prijs, product.Beschrijving, product.Soort);

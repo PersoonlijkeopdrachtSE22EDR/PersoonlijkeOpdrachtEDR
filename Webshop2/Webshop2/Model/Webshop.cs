@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Webshop.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,13 +13,6 @@ namespace Webshop2
 {
     public partial class Webshop
     {
-        public List<Account> Accounts
-        {
-            get
-            {
-                return Account.GetAccounts();
-            }
-        }
         public List<Product> Producten
         {
             get
@@ -33,18 +32,5 @@ namespace Webshop2
                 return false;
             }
         }
-
-        public Account Login(string gebruikersnaam, string wachtwoord)
-        {
-            Account account = Webshop.CheckLogin(gebruikersnaam, wachtwoord);
-            return account;
-        }
-
-        public Account getAccountByEmail(string gebruikersnaam)
-        {
-            Account account = Account.GetAccountByGebruikersnaam(gebruikersnaam);
-            return account;
-        }
-
     }
 }

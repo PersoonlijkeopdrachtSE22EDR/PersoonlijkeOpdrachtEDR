@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Winkelwagen.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -34,40 +40,40 @@ namespace Webshop2
         {
             this.Account = account;
             this.Productregels = productregels;
-            this.Prijs = BerekenPrijs();
+            this.Prijs = this.BerekenPrijs();
         }
 
         public void VoegProductToeAanWinkelwagen(Product product, int hoeveelheid)
         {
-            if(Productregels == null)
+            if(this.Productregels == null)
             {
-                Productregels = new List<Productregel>();
+                this.Productregels = new List<Productregel>();
             }
             Productregel productregel = new Productregel(product, hoeveelheid);
             Productregel.VoegProductregelToe(Account, productregel);
-            Productregels.Add(productregel);
+            this.Productregels.Add(productregel);
         }
 
         public void VerwijderProductregel(Productregel productregel)
         {
             //database verwijdering
-            Productregels.Remove(productregel);
+            this.Productregels.Remove(productregel);
         }
 
         public void MaakWinkelwagenleeg()
         {
             Productregel.VerwijderProductregels(Account.Gebruikersnaam);
-            Productregels.Clear();
+            this.Productregels.Clear();
         }
 
         public decimal BerekenPrijs()
         {
-            foreach(Productregel productregel in Productregels)
+            foreach(Productregel productregel in this.Productregels)
             {
-                Prijs += productregel.Prijs;
+                this.Prijs += productregel.Prijs;
             }
 
-            return Prijs;
+            return this.Prijs;
         }
     }
 }

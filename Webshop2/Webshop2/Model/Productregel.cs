@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Productregel.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,7 +36,7 @@ namespace Webshop2
         {
             this.Product = product;
             this.Hoeveelheid = hoeveelheid;
-            this.Prijs = BerekenPrijs(hoeveelheid, product.Prijs);
+            this.Prijs = this.BerekenPrijs(hoeveelheid, product.Prijs);
         }
 
         public decimal BerekenPrijs(int hoeveelheid, decimal prijs)
@@ -42,7 +48,7 @@ namespace Webshop2
         public override string ToString()
         {
             string productregelstring;
-            return productregelstring = "Artikelnummer: " + Product.Artikelnummer.ToString() + ", Productnaam: " + Product.Productnaam + ", Prijs: €" + Product.Prijs.ToString() + ", Hoeveelheid: " + Hoeveelheid.ToString() + ", Totaalprijs: " + BerekenPrijs(Hoeveelheid, Product.Prijs).ToString();
+            return productregelstring = "Artikelnummer: " + Product.Artikelnummer.ToString() + ", Productnaam: " + Product.Productnaam + ", Prijs: €" + Product.Prijs.ToString() + ", Hoeveelheid: " + this.Hoeveelheid.ToString() + ", Totaalprijs: €" + this.BerekenPrijs(this.Hoeveelheid, Product.Prijs).ToString();
         }
     }
 }

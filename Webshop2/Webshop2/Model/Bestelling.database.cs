@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Bestelling.database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,26 +16,26 @@ namespace Webshop2
 {
     public partial class Bestelling
     {
-        public static List<Bestelling> GetBestellingen(string Gebruikersnaam)
+        public static List<Bestelling> GetBestellingen(string gebruikersnaam)
         {
-            List<Bestelling> Bestellingen = new List<Bestelling>();
+            List<Bestelling> bestellingen = new List<Bestelling>();
             OracleCommand getCmd = new OracleCommand("SELECT BESTELLINGNR, EMAILADRES, DATUMTIJD FROM BESTELLING WHERE EMAILADRES = :email ORDER BY BESTELLINGNR DESC");
-            getCmd.Parameters.Add("email", Gebruikersnaam);
-            DataTable dt = Database.getDataParameters(getCmd);
+            getCmd.Parameters.Add("email", gebruikersnaam);
+            DataTable dt = Database.GetDataParameters(getCmd);
             foreach(DataRow row in dt.Rows)
             {
                 DateTime datum = Convert.ToDateTime(row["DATUMTIJD"]);
                 Bestelling bestelling = new Bestelling(Convert.ToInt32(row["BESTELLINGNR"]), row["EMAILADRES"].ToString(), datum.ToString("dd-MM-yyyy"));
-                Bestellingen.Add(bestelling);
+                bestellingen.Add(bestelling);
             }
 
-            return Bestellingen;
+            return bestellingen;
         }
 
         public static int GetBestellingNr()
         {
             int bestellingnr = 0;
-            DataTable dt = Database.getData("SELECT MAX(BESTELLINGNR) as maxNummer FROM BESTELLING");
+            DataTable dt = Database.GetData("SELECT MAX(BESTELLINGNR) as maxNummer FROM BESTELLING");
             foreach (DataRow row in dt.Rows)
             {
                 if(DBNull.Value.Equals(row["maxNummer"]))

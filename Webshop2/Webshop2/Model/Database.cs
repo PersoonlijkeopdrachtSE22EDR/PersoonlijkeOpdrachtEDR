@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,7 +26,7 @@ namespace Webshop2
             conn.ConnectionString = "User Id=" + pcn + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
         }
 
-        public static DataTable getData(string query)
+        public static DataTable GetData(string query)
         {
             DataTable dt = new DataTable();
 
@@ -42,8 +48,7 @@ namespace Webshop2
             return dt;
         }
 
-
-        public static DataTable getDataParameters(OracleCommand cmd)
+        public static DataTable GetDataParameters(OracleCommand cmd)
         {
             DataTable dt = new DataTable();
             cmd.Connection = conn;
@@ -65,7 +70,6 @@ namespace Webshop2
 
             return dt;
         }
-
 
         public static void InsertData(OracleCommand cmd)
         {

@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Bestelling.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -63,7 +69,7 @@ namespace Webshop2
                     mail.Subject = "Uw bestelling bij EDR Webshop";
                     mail.IsBodyHtml = true;
                     string bodyHeader = "<h3>Bedankt voor het plaatsen van een bestelling bij EDR Webshop.</h3><br /><p>Productdetails</p><p><ul>";
-                    string body = "";
+                    string body = string.Empty;
                     string bodyFooter = "</ul> <br /> Totaalprijs: €" + bestelling.Winkelwagen.Prijs;
                     foreach (Productregel pr in bestelling.Winkelwagen.Productregels)
                     {
@@ -72,7 +78,6 @@ namespace Webshop2
                     }
                     string bericht = bodyHeader + body + bodyFooter;
                     mail.Body = bericht;
-
 
                     //Setting From , To and CC
                     mail.From = new MailAddress("webshopEDR@gmail.com", "Webshop EDR");

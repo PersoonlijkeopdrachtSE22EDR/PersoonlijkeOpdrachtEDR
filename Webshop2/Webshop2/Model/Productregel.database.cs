@@ -1,10 +1,16 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Productregel.database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
-using System.Data;
 
 namespace Webshop2
 {
@@ -16,7 +22,7 @@ namespace Webshop2
             OracleCommand checkCmd = new OracleCommand("SELECT EMAILADRES, ARTIKELNUMMER FROM WINKELWAGEN WHERE EMAILADRES = :email AND ARTIKELNUMMER = :artikelnummer");
             checkCmd.Parameters.Add("email", account.Gebruikersnaam);
             checkCmd.Parameters.Add("artikelnummer", productregel.Product.Artikelnummer);
-            DataTable dt = Database.getDataParameters(checkCmd);
+            DataTable dt = Database.GetDataParameters(checkCmd);
             foreach (DataRow row in dt.Rows)
             {
                 if (account.Gebruikersnaam == row["EMAILADRES"].ToString() && productregel.Product.Artikelnummer == Convert.ToInt32(row["ARTIKELNUMMER"]))
@@ -43,18 +49,18 @@ namespace Webshop2
 
         public static List<Productregel> GetProductregels(Account account)
         {
-            List<Productregel> Productregels = new List<Productregel>();
+            List<Productregel> productregels = new List<Productregel>();
             OracleCommand checkCmd = new OracleCommand("SELECT ARTIKELNUMMER, EMAILADRES, HOEVEELHEID FROM WINKELWAGEN WHERE EMAILADRES = :email");
             checkCmd.Parameters.Add("email", account.Gebruikersnaam);
-            DataTable dt = Database.getDataParameters(checkCmd);
+            DataTable dt = Database.GetDataParameters(checkCmd);
             foreach(DataRow row in dt.Rows)
             {
                 int artikelnummer = Convert.ToInt32(row["ARTIKELNUMMER"]);
                 Product product = Product.GetProductByArtikelnummer(artikelnummer);
                 Productregel productregel = new Productregel(product, Convert.ToInt32(row["HOEVEELHEID"]));
-                Productregels.Add(productregel);
+                productregels.Add(productregel);
             }
-            return Productregels;
+            return productregels;
         }
 
         public static void VerwijderProductregels(string gebruikersnaam)

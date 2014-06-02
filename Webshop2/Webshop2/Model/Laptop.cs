@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Laptop.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -37,7 +43,7 @@ namespace Webshop2
             set;
         }
 
-        public Laptop(string processor, string ram, string resolutie, string hardeschijf, string grafischekaart, int Artikelnummer, string Productnaam, decimal Prijs, string Beschrijving, string Soort) :base (Artikelnummer, Productnaam, Prijs, Beschrijving, Soort)
+        public Laptop(string processor, string ram, string resolutie, string hardeschijf, string grafischekaart, int artikelnummer, string productnaam, decimal prijs, string beschrijving, string soort) :base (artikelnummer, productnaam, prijs, beschrijving, soort)
         {
             this.Processor = processor;
             this.RAM = ram;

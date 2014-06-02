@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Film.database.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +21,7 @@ namespace Webshop2
             Film film;
             OracleCommand getCmd = new OracleCommand("SELECT ARTIKELNUMMER, GENRE, GEGEVENSDRAGER, DUUR FROM FILM WHERE ARTIKELNUMMER = :artikelnummer");
             getCmd.Parameters.Add("artikelnummer", product.Artikelnummer);
-            DataTable dt = Database.getDataParameters(getCmd);
+            DataTable dt = Database.GetDataParameters(getCmd);
             foreach (DataRow row in dt.Rows)
             {
                 film = new Film(row["GENRE"].ToString(), row["GEGEVENSDRAGER"].ToString(), row["DUUR"].ToString(), product.Artikelnummer, product.Productnaam, product.Prijs, product.Beschrijving, product.Soort);
