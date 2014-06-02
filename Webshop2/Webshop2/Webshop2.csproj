@@ -124,7 +124,9 @@
     <Compile Include="Model\Bestelling.database.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Film.cs" />
+    <Compile Include="Model\Film.database.cs" />
     <Compile Include="Model\Laptop.cs" />
+    <Compile Include="Model\Laptop.database.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\Product.database.cs" />
     <Compile Include="Model\Productregel.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Model\Reactie.cs" />
     <Compile Include="Model\Reactie.database.cs" />
     <Compile Include="Model\Wasmachine.cs" />
+    <Compile Include="Model\Wasmachine.database.cs" />
     <Compile Include="Model\Webshop.cs" />
     <Compile Include="Model\Webshop.database.cs" />
     <Compile Include="Model\Wenslijst.cs" />

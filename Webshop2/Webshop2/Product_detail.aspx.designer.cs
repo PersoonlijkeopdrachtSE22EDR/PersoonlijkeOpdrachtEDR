@@ -58,6 +58,15 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.Label LabelBeschrijving;
         
         /// <summary>
+        /// Divlabels control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Divlabels;
+        
+        /// <summary>
         /// TextboxHoeveelheid control.
         /// </summary>
         /// <remarks>
@@ -85,31 +94,13 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// CompareValidatorGetal control.
+        /// RegularExpressionValidator4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorGetal;
-        
-        /// <summary>
-        /// CompareValidatorGroterdan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorGroterdan;
-        
-        /// <summary>
-        /// CompareValidatorKleinerdan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorKleinerdan;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         /// <summary>
         /// ButtonWenslijst control.
@@ -148,13 +139,13 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.TextBox TextboxPlaatsReactie;
         
         /// <summary>
-        /// CompareValidator1 control.
+        /// ButtonPlaatsreactie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonPlaatsreactie;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -166,12 +157,12 @@ namespace Webshop2 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// ButtonPlaatsreactie control.
+        /// RegularExpressionValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ButtonPlaatsreactie;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
     }
 }

@@ -30,7 +30,7 @@ namespace Webshop2
             DataTable dt = Database.getDataParameters(Getcmd);
             foreach(DataRow row in dt.Rows)
             {
-                Product product = new Product(Convert.ToInt32(row["ARTIKELNUMMER"]), row["PRODUCTNAAM"].ToString(), Convert.ToDecimal(row["PRIJS"]), row["BESCHRIJVING"].ToString());
+                Product product = new Product(Convert.ToInt32(row["ARTIKELNUMMER"]), row["PRODUCTNAAM"].ToString(), Convert.ToDecimal(row["PRIJS"]), row["BESCHRIJVING"].ToString(), row["SOORT"].ToString().ToUpper());
                 return product;
             }
             return null;

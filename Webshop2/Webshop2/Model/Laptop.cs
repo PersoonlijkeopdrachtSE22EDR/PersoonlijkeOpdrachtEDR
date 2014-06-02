@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Webshop2
 {
-    public class Laptop : Product
+    public partial class Laptop : Product
     {
         public string Processor
         {
@@ -16,25 +16,25 @@ namespace Webshop2
         public string RAM
         {
             get;
-            private set;
+            set;
         }
 
         public string Resolutie
         {
             get;
-            private set;
+            set;
         }
 
         public string HardeSchijf
         {
             get;
-            private set;
+            set;
         }
 
         public string GrafischeKaart
         {
             get;
-            private set;
+            set;
         }
 
         public Laptop(string processor, string ram, string resolutie, string hardeschijf, string grafischekaart, int Artikelnummer, string Productnaam, decimal Prijs, string Beschrijving, string Soort) :base (Artikelnummer, Productnaam, Prijs, Beschrijving, Soort)
