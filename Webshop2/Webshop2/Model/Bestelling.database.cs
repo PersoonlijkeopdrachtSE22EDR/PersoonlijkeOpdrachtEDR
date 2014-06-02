@@ -13,7 +13,7 @@ namespace Webshop2
         public static List<Bestelling> GetBestellingen(string Gebruikersnaam)
         {
             List<Bestelling> Bestellingen = new List<Bestelling>();
-            OracleCommand getCmd = new OracleCommand("SELECT BESTELLINGNR, EMAILADRES, DATUMTIJD FROM BESTELLING WHERE EMAILADRES = :email");
+            OracleCommand getCmd = new OracleCommand("SELECT BESTELLINGNR, EMAILADRES, DATUMTIJD FROM BESTELLING WHERE EMAILADRES = :email ORDER BY BESTELLINGNR DESC");
             getCmd.Parameters.Add("email", Gebruikersnaam);
             DataTable dt = Database.getDataParameters(getCmd);
             foreach(DataRow row in dt.Rows)
