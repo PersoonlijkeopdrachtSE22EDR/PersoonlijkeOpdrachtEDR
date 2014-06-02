@@ -34,7 +34,13 @@ namespace Webshop2
             set;
         }
 
-        public string Gebruikesnaam
+        public Account Account
+        {
+            get;
+            set;
+        }
+
+        public string Gebruikersnaam
         {
             get;
             set;
@@ -47,10 +53,17 @@ namespace Webshop2
             this.Datum = datum;
         }
 
-        public Bestelling(int bestellingNr, string emailadres, string datum)
+        public Bestelling(int bestellingNr, Account account, string datum)
         {
             this.BestellingNr = bestellingNr;
-            this.Gebruikesnaam = emailadres;
+            this.Account = account;
+            this.Datum = datum;
+        }
+
+        public Bestelling(int bestellingNr, string gebruikersnaam, string datum)
+        {
+            this.BestellingNr = bestellingNr;
+            this.Gebruikersnaam = gebruikersnaam;
             this.Datum = datum;
         }
 

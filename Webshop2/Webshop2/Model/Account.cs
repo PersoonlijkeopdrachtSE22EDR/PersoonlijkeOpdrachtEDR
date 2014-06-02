@@ -11,6 +11,9 @@ using System.Web;
 using System.Data;
 namespace Webshop2
 {
+    /// <summary>
+    /// De class Account is de gebruiker/koper.
+    /// </summary>
     public partial class Account
     {
         public string Gebruikersnaam
@@ -63,15 +66,6 @@ namespace Webshop2
         {
             this.Gebruikersnaam = gebruikersnaam;
             this.wachtwoord = wachtwoord;
-            this.Naam = naam;
-            this.Adres = adres;
-            this.Telefoonnummer = telefoonnummer;
-            this.Woonplaats = woonplaats;
-        }
-
-        public Account (string gebruikersnaam, string naam, string adres, string telefoonnummer, string woonplaats)
-        {
-            this.Gebruikersnaam = gebruikersnaam;
             this.Naam = naam;
             this.Adres = adres;
             this.Telefoonnummer = telefoonnummer;

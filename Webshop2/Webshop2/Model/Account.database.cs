@@ -14,6 +14,9 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze class wordt gebruikt voor alle Account gerelateerde database queries
+    /// </summary>
     public partial class Account
     {
         public static bool VoegAccountToe(Account account)
@@ -41,13 +44,13 @@ namespace Webshop2
 
         public static Account GetAccountByGebruikersnaam(string gebruikersnaam)
         {
-            OracleCommand getCmd = new OracleCommand("SELECT EMAILADRES, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email");
+            OracleCommand getCmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email");
             getCmd.Parameters.Add(new OracleParameter("email", gebruikersnaam.ToLower()));
             DataTable dt = Database.GetDataParameters(getCmd);
             Account account;
             foreach(DataRow row in dt.Rows)
             {
-                account = new Account(row["EMAILADRES"].ToString(), row["NAAM"].ToString(), row["ADRES"].ToString(), row["TELEFOONNUMMER"].ToString(), row["WOONPLAATS"].ToString());
+                account = new Account(row["EMAILADRES"].ToString(), row["WACHTWOORD"].ToString(), row["NAAM"].ToString(), row["ADRES"].ToString(), row["TELEFOONNUMMER"].ToString(), row["WOONPLAATS"].ToString());
                 return account;
             }
             return null;

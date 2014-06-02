@@ -117,7 +117,7 @@ namespace Webshop2
                 {
                     Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
                     Winkelwagen winkelwagen = new Winkelwagen(account);
-                    winkelwagen.VoegProductToeAanWinkelwagen(product, Convert.ToInt32(TextboxHoeveelheid.Text));
+                    winkelwagen.VoegToeProduct(product, Convert.ToInt32(TextboxHoeveelheid.Text));
                     Response.Redirect("Winkelwagen.aspx");
                 }
             }

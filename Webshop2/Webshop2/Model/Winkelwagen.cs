@@ -43,7 +43,7 @@ namespace Webshop2
             this.Prijs = this.BerekenPrijs();
         }
 
-        public void VoegProductToeAanWinkelwagen(Product product, int hoeveelheid)
+        public void VoegToeProduct(Product product, int hoeveelheid)
         {
             if(this.Productregels == null)
             {
