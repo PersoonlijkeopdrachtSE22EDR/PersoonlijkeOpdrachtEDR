@@ -19,8 +19,8 @@ namespace Webshop2
             }
             else
             {
-                List<Bestelling> bestellingen = Bestelling.GetBestellingen((string)Session["gebruikersnaam"]);
-                repeaterBestelling.DataSource = bestellingen;
+                Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
+                repeaterBestelling.DataSource = account.Bestellingen;
                 repeaterBestelling.DataBind();
             }
         }

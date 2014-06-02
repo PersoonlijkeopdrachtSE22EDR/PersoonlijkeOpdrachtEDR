@@ -91,7 +91,7 @@ namespace Webshop2
             }
         }
 
-        protected void LeegWinkelwagen_CLick(object sender, EventArgs e)
+        protected void LeegWinkelwagen_Click(object sender, EventArgs e)
         {
             if (Session["gebruikersnaam"] == null)
             {

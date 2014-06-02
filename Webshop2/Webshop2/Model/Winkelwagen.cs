@@ -54,12 +54,6 @@ namespace Webshop2
             this.Productregels.Add(productregel);
         }
 
-        public void VerwijderProductregel(Productregel productregel)
-        {
-            //database verwijdering
-            this.Productregels.Remove(productregel);
-        }
-
         public void MaakWinkelwagenleeg()
         {
             Productregel.VerwijderProductregels(Account.Gebruikersnaam);

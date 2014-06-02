@@ -16,25 +16,6 @@ namespace Webshop2
 {
     public partial class Account
     {
-        public static List<Account> GetAccounts()
-        {
-            List<Account> accounts = new List<Account>();
-            DataTable dt = Database.GetData("SELECT EMAILADRES as email, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS");
-            foreach(DataRow row in dt.Rows)
-            {
-                string email = row["email"].ToString();
-                string wachtwoord = row["WACHTWOORD"].ToString();
-                string naam = row["NAAM"].ToString();
-                string adres = row["ADRES"].ToString();
-                string telefoonnummer = row["TELEFOONNUMMER"].ToString();
-                string woonplaats = row["WOONPLAATS"].ToString();
-
-                Account account = new Account(email, wachtwoord, naam, adres, telefoonnummer, woonplaats);
-                accounts.Add(account);
-            }
-            return accounts;
-        }
-
         public static bool VoegAccountToe(Account account)
         {
             OracleCommand checkCmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD FROM ACCOUNTS WHERE EMAILADRES = :email");

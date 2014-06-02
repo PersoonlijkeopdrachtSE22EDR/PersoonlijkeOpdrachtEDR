@@ -38,12 +38,6 @@ namespace Webshop2
             this.Producten.Add(product);
         }
 
-        public void VerwijderProduct(Product product)
-        {
-            //database
-            this.Producten.Remove(product);
-        }
-
         public void MaakWenslijstLeeg()
         {
             Wenslijst.VerwijderProducten(Account.Gebruikersnaam);

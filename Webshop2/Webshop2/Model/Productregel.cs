@@ -29,7 +29,6 @@ namespace Webshop2
         {
             get;
             set;
-
         }
 
         public Productregel(Product product, int hoeveelheid)

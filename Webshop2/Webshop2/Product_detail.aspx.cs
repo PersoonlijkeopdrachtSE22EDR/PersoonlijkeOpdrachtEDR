@@ -89,7 +89,7 @@ namespace Webshop2
                         break;
                 }
 
-                List<Reactie> Reacties = Reactie.GetReactieByArtikelnummer(artikelnummer);
+                List<Reactie> Reacties = product.Reacties;
                 if (Reacties.Count != 0)
                 {
                     repeaterReactie.DataSource = Reacties;
