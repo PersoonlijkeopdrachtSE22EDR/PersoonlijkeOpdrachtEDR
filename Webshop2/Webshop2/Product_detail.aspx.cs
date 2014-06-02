@@ -43,17 +43,21 @@ namespace Webshop2
 
         protected void ButtonBestel_Click(object sender, EventArgs e)
         {
-            if (Session["gebruikersnaam"] == null)
+            Page.Validate("validation1");
+            if (Page.IsValid)
             {
-                FormsAuthentication.SignOut();
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
-                Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
-                Winkelwagen winkelwagen = new Winkelwagen(account);
-                winkelwagen.VoegProductToeAanWinkelwagen(product, Convert.ToInt32(TextboxHoeveelheid.Text));
-                Response.Redirect("Winkelwagen.aspx");
+                if (Session["gebruikersnaam"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
+                    Winkelwagen winkelwagen = new Winkelwagen(account);
+                    winkelwagen.VoegProductToeAanWinkelwagen(product, Convert.ToInt32(TextboxHoeveelheid.Text));
+                    Response.Redirect("Winkelwagen.aspx");
+                }
             }
         }
 
@@ -75,19 +79,22 @@ namespace Webshop2
 
         protected void ButtonPlaatsReactie_Click(object sender, EventArgs e)
         {
-            if (Session["gebruikersnaam"] == null)
+            Page.Validate("validation2");
+            if (Page.IsValid)
             {
-                FormsAuthentication.SignOut();
-                Response.Redirect("Login.aspx");
+                if (Session["gebruikersnaam"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
+                    Reactie reactie = new Reactie(account.Gebruikersnaam, TextboxPlaatsReactie.Text, DateTime.Today.ToString("dd-MMM-yyyy"));
+                    product.PlaatsReactie(reactie);
+                    Response.Redirect("Product_detail.aspx");
+                }
             }
-            else
-            {
-                Account account = Account.GetAccountByGebruikersnaam((string)Session["gebruikersnaam"]);
-                Reactie reactie = new Reactie(account.Gebruikersnaam, TextboxPlaatsReactie.Text, DateTime.Today.ToString("dd-MMM-yyyy"));
-                product.PlaatsReactie(reactie);
-                Response.Redirect("Product_detail.aspx");
-            }
-            
         }
     }
 }
