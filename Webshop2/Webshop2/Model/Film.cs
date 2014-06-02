@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Film is een subclass van product.
+    /// </summary>
     public partial class Film : Product
     {
         public string Genre

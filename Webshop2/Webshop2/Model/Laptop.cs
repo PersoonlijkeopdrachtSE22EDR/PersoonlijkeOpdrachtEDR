@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Laptop is een subclass van product.
+    /// </summary>
     public partial class Laptop : Product
     {
         public string Processor

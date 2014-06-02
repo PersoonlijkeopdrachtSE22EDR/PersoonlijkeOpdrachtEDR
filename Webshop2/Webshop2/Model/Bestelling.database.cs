@@ -14,8 +14,16 @@ using Oracle.DataAccess.Client;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze class wordt gebruikt voor alle bestelling gerelateerde queries.
+    /// </summary>
     public partial class Bestelling
     {
+        /// <summary>
+        /// Haalt de bestellingen op, op basis van de meegekregen gebruikersnaam.
+        /// </summary>
+        /// <param name="gebruikersnaam">De gebruikersnaam waarvan alle bestellingen opgehaald moeten worden.</param>
+        /// <returns>Returnt een lijst met bestellingen.</returns>
         public static List<Bestelling> GetBestellingen(string gebruikersnaam)
         {
             List<Bestelling> bestellingen = new List<Bestelling>();
@@ -32,6 +40,10 @@ namespace Webshop2
             return bestellingen;
         }
 
+        /// <summary>
+        /// Maakt een nieuw bestellingsnummer op basis van het maximale bestaande bestellingsnummer.
+        /// </summary>
+        /// <returns>Het nieuwe unieke bestellingsnummer.</returns>
         public static int GetBestellingNr()
         {
             int bestellingnr = 0;
@@ -51,6 +63,11 @@ namespace Webshop2
             return bestellingnr;
         }
 
+        /// <summary>
+        /// Voegt een bestelling toe aan de database
+        /// </summary>
+        /// <param name="bestelling">De bestelling die toegevoegd moet worden.</param>
+        /// <returns>Returnt een bool om te laten weten of het gelukt is.</returns>
         public static bool VoegToeBestelling(Bestelling bestelling)
         {
             bool isGelukt = false;

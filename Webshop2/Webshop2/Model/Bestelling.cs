@@ -14,6 +14,9 @@ using System.Data;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// De bestelling die een account plaatst.
+    /// </summary>
     public partial class Bestelling
     {
         public int BestellingNr
@@ -67,6 +70,10 @@ namespace Webshop2
             this.Datum = datum;
         }
 
+        /// <summary>
+        /// Plaatst de bestelling een stuurt een bevestigingsmail
+        /// </summary>
+        /// <param name="bestelling">De bestelling die geplaatst wordt</param>
         public void PlaatsBestelling(Bestelling bestelling)
         {
             if (bestelling.Winkelwagen.Productregels.Count != 0)
@@ -102,6 +109,12 @@ namespace Webshop2
                 }
             }
         }
+
+        /// <summary>
+        /// Zet de winkelwagen om in een bestelling
+        /// </summary>
+        /// <param name="winkelwagen">De winkelwagen die omgezet wordt in de bestelling</param>
+        /// <returns></returns>
         public static Bestelling VoegToeBestelling(Winkelwagen winkelwagen)
         {
             int artikelnummer = 0;

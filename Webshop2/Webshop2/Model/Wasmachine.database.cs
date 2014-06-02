@@ -14,6 +14,9 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze class haalt de gegevens op van een Wasmachine
+    /// </summary>
     public partial class Wasmachine
     {
         public static Wasmachine GetWasmachine(Product product)

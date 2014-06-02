@@ -14,8 +14,16 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// De database class die zorgt voor alle database gerelateerde acties voor productregel
+    /// </summary>
     public partial class Productregel
     {
+        /// <summary>
+        /// Voegt een productregel toe aan de database
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="productregel"></param>
         public static void VoegProductregelToe(Account account, Productregel productregel)
         {
             bool nieuw = true;
@@ -47,6 +55,11 @@ namespace Webshop2
             
         }
 
+        /// <summary>
+        /// Haalt alle productregels op uit de database op basis van het account (voor de winkelwagen)
+        /// </summary>
+        /// <param name="account">Het account waarop gezocht wordt.</param>
+        /// <returns>Returnt een lijst met productregels.</returns>
         public static List<Productregel> GetProductregels(Account account)
         {
             List<Productregel> productregels = new List<Productregel>();
@@ -63,6 +76,10 @@ namespace Webshop2
             return productregels;
         }
 
+        /// <summary>
+        /// Verwijdert de productregels van de gebruiker op basis van de gebruikersnaam.
+        /// </summary>
+        /// <param name="gebruikersnaam">Gebruikersnaam van een account</param>
         public static void VerwijderProductregels(string gebruikersnaam)
         {
             OracleCommand verwijderCmd = new OracleCommand("DELETE FROM WINKELWAGEN WHERE EMAILADRES = :email");

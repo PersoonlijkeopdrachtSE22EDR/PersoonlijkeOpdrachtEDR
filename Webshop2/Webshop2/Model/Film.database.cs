@@ -14,6 +14,9 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze class haalt de gegevens op van een film
+    /// </summary>
     public partial class Film : Product
     {
         public static Film GetFilm(Product product)

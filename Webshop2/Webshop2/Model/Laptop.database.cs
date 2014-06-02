@@ -14,6 +14,9 @@ using Oracle.DataAccess.Client;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze class haalt de gegevens op van een laptop.
+    /// </summary>
     public partial class Laptop : Product
     {
         public static Laptop GetLaptop(Product product)

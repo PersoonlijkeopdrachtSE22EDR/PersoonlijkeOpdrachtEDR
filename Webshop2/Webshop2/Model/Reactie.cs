@@ -10,6 +10,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Een reactie op en een product
+    /// </summary>
     public partial class Reactie
     {
         public string Gebruikersnaam

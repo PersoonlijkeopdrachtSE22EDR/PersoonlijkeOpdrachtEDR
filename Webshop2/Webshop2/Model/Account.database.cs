@@ -19,6 +19,11 @@ namespace Webshop2
     /// </summary>
     public partial class Account
     {
+        /// <summary>
+        /// Voegt een Account toe aan de database
+        /// </summary>
+        /// <param name="account">Het account dat toegevoegd wordt.</param>
+        /// <returns>Returnt een bool ter bevestiging</returns>
         public static bool VoegAccountToe(Account account)
         {
             OracleCommand checkCmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD FROM ACCOUNTS WHERE EMAILADRES = :email");
@@ -42,6 +47,11 @@ namespace Webshop2
             }
         }
 
+        /// <summary>
+        /// Haalt een account op uit de database op basis van de unieke gebruikersnaam
+        /// </summary>
+        /// <param name="gebruikersnaam">De gebruikersnaam waarmee het account gezocht wordt in de database</param>
+        /// <returns>Returnt het gevonden account met de gebruikersnaam</returns>
         public static Account GetAccountByGebruikersnaam(string gebruikersnaam)
         {
             OracleCommand getCmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email");

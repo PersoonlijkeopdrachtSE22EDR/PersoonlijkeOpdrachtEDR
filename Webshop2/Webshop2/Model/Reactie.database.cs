@@ -13,6 +13,9 @@ using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze class wordt gebruikt voor alle Reactie gerelateerde database queries
+    /// </summary>
     public partial class Reactie
     {
         public static List<Reactie> GetReactieByArtikelnummer(int artikelnummer)

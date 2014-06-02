@@ -14,8 +14,17 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// De database class die zorgt voor alle database gerelateerde acties voor Webshop
+    /// </summary>
     public partial class Webshop
     {
+        /// <summary>
+        /// Deze methode checkt of de gebruiker geregistreerd staat in de database.
+        /// </summary>
+        /// <param name="gebruikersnaam"></param>
+        /// <param name="wachtwoord"></param>
+        /// <returns></returns>
         public static Account CheckLogin(string gebruikersnaam, string wachtwoord)
         {
             OracleCommand cmd = new OracleCommand("SELECT EMAILADRES, WACHTWOORD, NAAM, ADRES, TELEFOONNUMMER, WOONPLAATS FROM ACCOUNTS WHERE EMAILADRES = :email AND WACHTWOORD = :wachtwoord");

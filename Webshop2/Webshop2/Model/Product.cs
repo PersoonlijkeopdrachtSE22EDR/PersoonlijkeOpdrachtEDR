@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Een product in de webshop.
+    /// </summary>
     public partial class Product
     {
         public int Artikelnummer
@@ -68,6 +71,10 @@ namespace Webshop2
             this.Soort = soort;
         }
 
+        /// <summary>
+        /// Plaatst een reactie bij het product.
+        /// </summary>
+        /// <param name="reactie">De reactie die wordt toegevoegd bij dit product.</param>
         public void PlaatsReactie(Reactie reactie)
         {
             Reactie.PlaatsReactie(reactie, this);

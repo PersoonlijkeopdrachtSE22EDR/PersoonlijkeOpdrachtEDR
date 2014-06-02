@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// De winkelwagen
+    /// </summary>
     public class Winkelwagen
     {
         public Account Account
@@ -43,6 +46,11 @@ namespace Webshop2
             this.Prijs = this.BerekenPrijs();
         }
 
+        /// <summary>
+        /// Voegt een product toe aan de winkelwagen
+        /// </summary>
+        /// <param name="product">Het product dat toegevoegd wordt</param>
+        /// <param name="hoeveelheid">Het aantal producten</param>
         public void VoegToeProduct(Product product, int hoeveelheid)
         {
             if(this.Productregels == null)
@@ -54,12 +62,19 @@ namespace Webshop2
             this.Productregels.Add(productregel);
         }
 
+        /// <summary>
+        /// Leegt de winkelwagen.
+        /// </summary>
         public void MaakWinkelwagenleeg()
         {
             Productregel.VerwijderProductregels(Account.Gebruikersnaam);
             this.Productregels.Clear();
         }
 
+        /// <summary>
+        /// Berekent de totaalprijs van de winkelwagen.
+        /// </summary>
+        /// <returns></returns>
         public decimal BerekenPrijs()
         {
             foreach(Productregel productregel in this.Productregels)

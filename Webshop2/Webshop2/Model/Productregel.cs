@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Een productregel in de winkelwagen.
+    /// </summary>
     public partial class Productregel
     {
         public Product Product

@@ -13,6 +13,9 @@ namespace Webshop2
 {
     public partial class Webshop
     {
+        /// <summary>
+        /// Deze klass houdt alle producten bij en voegt ook gebruikers toe.
+        /// </summary>
         public List<Product> Producten
         {
             get

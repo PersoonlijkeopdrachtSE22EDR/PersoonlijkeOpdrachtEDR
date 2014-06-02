@@ -11,6 +11,9 @@ using System.Web;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Wasmachine is een subclass van Product.
+    /// </summary>
     public partial class Wasmachine : Product
     {
         public string Energieklasse

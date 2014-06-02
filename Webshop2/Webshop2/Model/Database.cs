@@ -14,6 +14,9 @@ using Oracle.DataAccess.Types;
 
 namespace Webshop2
 {
+    /// <summary>
+    /// Deze klass wordt gebruikt om verbinding te maken met de database.
+    /// </summary>
     public static class Database
     {
         private static OracleConnection conn;
@@ -26,6 +29,11 @@ namespace Webshop2
             conn.ConnectionString = "User Id=" + pcn + ";Password=" + pw + ";Data Source=" + "//192.168.15.50:1521/fhictora" + ";";
         }
 
+        /// <summary>
+        /// Haalt gegevens op uit de database op basis va neen query.
+        /// </summary>
+        /// <param name="query">De query die gebruikt wordt om gegevens op te halen</param>
+        /// <returns>Returnt een datatable met gegevens.</returns>
         public static DataTable GetData(string query)
         {
             DataTable dt = new DataTable();
@@ -48,6 +56,11 @@ namespace Webshop2
             return dt;
         }
 
+        /// <summary>
+        /// Deze methode wordt gebruikt om gegevens op te halen uit de database d.m.v. queries met parameters.
+        /// </summary>
+        /// <param name="cmd">Het oraclecommand met parameters</param>
+        /// <returns>Returnt een datatable met gegevens.</returns>
         public static DataTable GetDataParameters(OracleCommand cmd)
         {
             DataTable dt = new DataTable();
@@ -71,6 +84,10 @@ namespace Webshop2
             return dt;
         }
 
+        /// <summary>
+        /// Met deze functie wordt worden er gegevens ge-update of ge-instert in de database d.m.v. een query met parameters
+        /// </summary>
+        /// <param name="cmd">Het oraclecommand met parameters.</param>
         public static void InsertData(OracleCommand cmd)
         {
             cmd.Connection = conn;
