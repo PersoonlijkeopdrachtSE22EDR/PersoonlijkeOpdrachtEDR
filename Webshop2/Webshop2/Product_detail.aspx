@@ -53,7 +53,7 @@
             Display="Dynamic"
             ValidationGroup="validation1">
         </asp:CompareValidator>
-        
+
         <br />
         <br />
         <asp:LinkButton runat="server" ValidationGroup="validation1" CssClass="btn btn-primary" ID="ButtonWenslijst" OnClick="ButtonWenslijst_Click">Wenslijst <i class="glyphicon glyphicon-plus"></i></asp:LinkButton>
@@ -65,7 +65,7 @@
         <ul class="list-group">
             <asp:Repeater runat="server" ID="repeaterReactie">
                 <ItemTemplate>
-                    <li class="list-group-item"> <%#Eval("Account.Naam")%> schreef: <%#Eval("Opmerking")%></li>
+                    <li class="list-group-item"><%#Eval("Account.Naam")%> schreef: <%#Eval("Opmerking")%></li>
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
@@ -79,11 +79,11 @@
         </asp:CompareValidator>
 
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3"
-                    ControlToValidate="TextboxPlaatsReactie"
-                    Display="Dynamic"
-                    ErrorMessage="Schrijf eerst een reactie."
-                    ValidationGroup="validation2"
-                    runat="server" />
+            ControlToValidate="TextboxPlaatsReactie"
+            Display="Dynamic"
+            ErrorMessage="Schrijf eerst een reactie."
+            ValidationGroup="validation2"
+            runat="server" />
         <asp:LinkButton runat="server" ValidationGroup="validation2" ID="ButtonPlaatsreactie" CssClass="btn btn-primary" OnClick="ButtonPlaatsReactie_Click">Reactie <i class="glyphicon glyphicon-plus"></i></asp:LinkButton>
     </form>
 </asp:Content>
