@@ -3,16 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3>Producten</h3>
-    <form runat="server" >
-        <asp:ListView runat="server" ID="listviewProducten" GroupItemCount="3" >
+    <h3 id="head">Producten</h3>
+    <form runat="server">
+        <asp:ListView runat="server" ID="listviewProducten" GroupItemCount="3">
             <LayoutTemplate>
                 <table>
                     <tr>
                         <td>
-                            <table border="1">
-                                <asp:PlaceHolder runat="server" ID="groupPlaceHolder"></asp:PlaceHolder>
-                            </table>
+                            <div id="content">
+                                <table border="0">
+                                    <asp:PlaceHolder runat="server" ID="groupPlaceHolder"></asp:PlaceHolder>
+                                </table>
+                            </div>
                         </td>
                     </tr>
                 </table>
@@ -22,7 +24,6 @@
                     <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                 </tr>
             </GroupTemplate>
-
 
             <ItemTemplate>
                 <td>
@@ -37,7 +38,8 @@
                     <%#Eval("Productnaam")%>
                     <br />
                     <label>
-                        Prijs:</label> €
+                        Prijs:</label>
+                    €
                     <%#Eval("Prijs")%>
 
                     <br />
@@ -46,7 +48,7 @@
                     <%#Eval("Beschrijving")%>
                     <br />
                     <br />
-                    <asp:LinkButton runat="server" Style="margin-left:38%" CssClass="btn btn-primary" Text="Bekijk" OnClick="Product_Click" CommandArgument='<%#Eval("Artikelnummer")%>'></asp:LinkButton>
+                    <asp:LinkButton runat="server" Style="margin-left: 38%;" CssClass="btn btn-primary" Text="Bekijk" OnClick="Product_Click" CommandArgument='<%#Eval("Artikelnummer")%>'></asp:LinkButton>
                 </td>
             </ItemTemplate>
         </asp:ListView>

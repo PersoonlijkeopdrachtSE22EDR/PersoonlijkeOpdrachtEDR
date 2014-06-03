@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <form runat="server">
-        <h4>Bestelling die door U geplaatst zijn</h4>
+        <h3>Bestelling die door U geplaatst zijn</h3>
         <asp:Label runat="server" ID="LabelReactieleeg"></asp:Label>
         <ul class="list-group">
             <asp:Repeater runat="server" ID="repeaterBestelling">

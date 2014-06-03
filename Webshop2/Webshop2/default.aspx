@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3>Accountgegevens:</h3>
+    <h3>Accountgegevens</h3>
         <%--Registreer Email adres--%>
         <div class="row class1">
             <div class="col-md-2">
@@ -84,5 +84,4 @@
             </div>
         </div>
         <%--Einde registreer Woonplaats--%>
-    </form>
 </asp:Content>
