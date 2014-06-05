@@ -26,7 +26,7 @@ namespace UnitTestProjectSE22
         }
 
         [TestMethod]
-        public void VoegProductToe()
+        public void VoegProductToeAanWinkelwagen()
         {
             Product product = Product.GetProductByArtikelnummer(9);
             Account account = Account.GetAccountByGebruikersnaam("ericderegter@gmail.com");
@@ -51,8 +51,11 @@ namespace UnitTestProjectSE22
 
             foreach(Reactie r in product.Reacties)
             {
-                Assert.AreEqual("Het werkt!", r.Opmerking);
-                Assert.AreEqual("ericderegter@gmail.com", r.Gebruikersnaam);
+                if (r.Opmerking == reactie.Opmerking)
+                {
+                    Assert.AreEqual("Het werkt!", r.Opmerking);
+                    Assert.AreEqual("ericderegter@gmail.com", r.Gebruikersnaam);
+                }
             }
         }
     }
