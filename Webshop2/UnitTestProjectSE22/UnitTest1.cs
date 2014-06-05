@@ -14,8 +14,9 @@ namespace UnitTestProjectSE22
         [TestMethod]
         public void VoegAccountToe()
         {
+            Webshop webshop = new Webshop();
             Account account = new Account("gebruikersnaam", "wachtwoord", "naam", "adres", "telnummer", "woonplaats");
-            Account.VoegAccountToe(account);
+            webshop.VoegToeAccount(account);
 
             Account Acc = Account.GetAccountByGebruikersnaam("gebruikersnaam");
             Assert.AreEqual("naam", Acc.Naam, "Naam komt niet overeen met wat is toegevoegd.");
