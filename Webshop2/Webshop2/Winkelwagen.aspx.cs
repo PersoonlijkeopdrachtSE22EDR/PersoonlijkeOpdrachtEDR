@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Winkelwagen.aspx.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,12 +30,12 @@ namespace Webshop2
 
                 if(productregels.Count == 0)
                 {
-                    TableRow RowLeeg = new TableRow();
-                    ProductenTabel.Rows.Add(RowLeeg);
+                    TableRow rowLeeg = new TableRow();
+                    ProductenTabel.Rows.Add(rowLeeg);
 
-                    TableCell CellLeeg = new TableCell();
-                    RowLeeg.Cells.Add(CellLeeg);
-                    CellLeeg.Text = "Geen producten in winkelwagen";
+                    TableCell cellLeeg = new TableCell();
+                    rowLeeg.Cells.Add(cellLeeg);
+                    cellLeeg.Text = "Geen producten in winkelwagen";
                 }
 
                 foreach (Productregel productregel in productregels)
@@ -41,7 +47,6 @@ namespace Webshop2
                     tr.Cells.Add(tcArtikelnummer);
                     tcArtikelnummer.CssClass = "WinkelwagenCell";
                     tcArtikelnummer.Text = "Artikelnummer:" + productregel.Product.Artikelnummer.ToString();
-
 
                     TableCell tcProductnaam = new TableCell();
                     tr.Cells.Add(tcProductnaam);

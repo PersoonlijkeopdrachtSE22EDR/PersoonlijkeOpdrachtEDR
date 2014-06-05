@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Product_detail.aspx.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -89,10 +95,10 @@ namespace Webshop2
                         break;
                 }
 
-                List<Reactie> Reacties = product.Reacties;
-                if (Reacties.Count != 0)
+                List<Reactie> reacties = product.Reacties;
+                if (reacties.Count != 0)
                 {
-                    repeaterReactie.DataSource = Reacties;
+                    repeaterReactie.DataSource = reacties;
                     repeaterReactie.DataBind();
                 }
                 else

@@ -1,4 +1,10 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Winkelwagen.cs" company="EDR">
+//     Copyright (c) Eric de Regter. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,12 +32,12 @@ namespace Webshop2
 
                 if(wenslijst.Producten.Count == 0)
                 {
-                    TableRow RowLeeg = new TableRow();
-                    TabelWenslijst.Rows.Add(RowLeeg);
+                    TableRow rowLeeg = new TableRow();
+                    TabelWenslijst.Rows.Add(rowLeeg);
 
-                    TableCell CellLeeg = new TableCell();
-                    RowLeeg.Cells.Add(CellLeeg);
-                    CellLeeg.Text = "Geen producten in Uw wenslijst.";
+                    TableCell cellLeeg = new TableCell();
+                    rowLeeg.Cells.Add(cellLeeg);
+                    cellLeeg.Text = "Geen producten in Uw wenslijst.";
                 }
 
                 foreach(Product product in wenslijst.Producten)
@@ -71,8 +77,6 @@ namespace Webshop2
                 wenslijst.MaakWenslijstLeeg();
                 Response.Redirect("Wenslijst.aspx");
             }
-            
-
         }
     }
 }
